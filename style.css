@@ -1,0 +1,46 @@
+*{
+padding: 0;
+margin: 0;
+text-decoration: none;
+box-sizing: border-box;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+
+html{
+font-size: 62.5%;
+}
+
+
+p{
+font-size: 1.6rem;
+line-height: 2.5rem;
+}
+
+#sample{
+    height: 100vh;
+    background-color: pink;
+    display: grid;
+    place-items: center;
+}
+.magnet-img{
+    width: 500px;
+    height: 400px;
+    cursor: pointer;
+}
+.magnet-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.footer{
+    width: 100%;
+    height: 50vh;
+    background-color: red;
+}
+.footer h1{
+    font-size: 12vw;
+}
+.ferro-text-split{
+    font-size: 4rem;
+}
