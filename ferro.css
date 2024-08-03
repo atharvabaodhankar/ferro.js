@@ -15,12 +15,6 @@
     color: #ffff;
     animation: ferro-text-waves-animation 4s ease-in-out infinite;
 }
-/* Usage : 
-<div class="ferro-text-waves footer">
-            <h1 style="-webkit-text-stroke: 2px #000;">ATHARVA</h1>
-            <h1 style="color:#000">ATHARVA</h1>
-</div>
-*/
 
 @keyframes ferro-text-waves-animation {
     0%, 100% {
@@ -53,8 +47,46 @@
 
 
 /* Ferro Text Split */
-.ferro-text-split span{
+span{
     display: inline-block;
 }
 
 /* Ferro Text Split End*/
+
+/* Ferro Img Shift */
+.ferro-img-shift{
+    overflow: hidden;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+/* Ferro Img Shift End */
+
+/* Ferro Text Underline */
+.ferro-text-underline {
+    position: relative;
+    cursor: pointer;
+    --f-text-underline : #000;
+    --f-text-underline-height : 3px;
+}
+
+.ferro-text-underline::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: var(--f-text-underline-height);
+    bottom: 0;
+    left: 0;
+    background-color: var(--f-text-underline);
+    transform-origin: bottom right;
+    transition: transform 0.4s ease-out;
+}
+
+.ferro-text-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+/* Ferro Text Underline End */
