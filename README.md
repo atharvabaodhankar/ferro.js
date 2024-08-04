@@ -1,119 +1,165 @@
-# Ferro.js README
+Here’s an enhanced README that includes the optional arguments for each function in the `Ferro` object:
 
-Ferro.js is a lightweight JavaScript library designed to add interactive animations and effects to your web elements using GSAP (GreenSock Animation Platform). It offers various functions to apply effects like magnetic cursor interactions, text splitting animations, text waves, parallax image shifts, elastic image effects, and text underlining. This README provides usage instructions for each function available in Ferro.js.
+---
 
-## FerroMagnet
+# Ferro.js
 
-This function creates a magnetic cursor effect on the specified elements.
+Ferro.js is a JavaScript library for adding interactive animations and effects to web elements using GSAP (GreenSock Animation Platform). This library includes various functions to create engaging animations and effects such as card reveals, text animations, parallax images, and more. Below are the detailed instructions and options for using each function.
 
-### Usage
+## Ferro Functions
+
+### `cardShow`
+
+Creates an animated reveal effect for card elements.
+
+#### Usage
 ```javascript
-FerroMagnet(".ferro-magnet", sensitivity);
+Ferro.cardShow(selector, style, srb, st, ed);
 ```
 
-### Parameters
-- `selector` (string): CSS selector for the elements to which the effect will be applied.
-- `sensitivity` (number): Sensitivity level (1 to 5) for the magnetic effect.
+#### Parameters
+- `selector` (string): CSS selector for the card elements to animate.
+- `style` (number, optional): Animation style (0 to 8). Default is 0.
+- `srb` (boolean, optional): If true, enables ScrollTrigger for the animation. Default is false.
+- `st` (string, optional): Scroll start position (e.g., "top"). Default is "top".
+- `ed` (string, optional): Scroll end position (e.g., "70%"). Default is "70%".
 
-### Example
+#### Example
 ```javascript
-FerroMagnet(".ferro-magnet", 3);
+Ferro.cardShow('.card', 3);
 ```
 
-## FerroTextSplit
+### `textUnderline`
 
-This function splits text into individual words and animates them with various effects when they enter the viewport.
+Adds a customizable underline effect to text elements.
 
-### Usage
+#### Usage
 ```javascript
-FerroTextSplit(".text", scrub, style, start, end);
+Ferro.textUnderline(buttons, cl, height);
 ```
 
-### Parameters
-- `selector` (string): CSS selector for the elements to which the effect will be applied.
-- `scrub` (number): Enables scrub if set to 1. (Optional, default is 0)
-- `style` (number): Style of the animation (0 to 4). (Optional, default is 0)
-- `start` (string): Scroll start position (e.g., "top"). (Optional, default is "top")
-- `end` (string): Scroll end position (e.g., "70%"). (Optional, default is "70%")
+#### Parameters
+- `buttons` (string): CSS selector for the text elements to which the underline effect will be applied.
+- `cl` (string, optional): Color of the underline. Default is "#000".
+- `height` (string, optional): Height of the underline. Default is "3px".
 
-### Example
+#### Example
 ```javascript
-FerroTextSplit(".text", 1, 4, "0%", "5%");
+Ferro.textUnderline(".btn", "green", "5px");
 ```
 
-## FerroTextWaves
+### `elasticImg`
 
-This function creates a wave effect on text with two layers of text, one with an outline and the other filled.
+Creates an elastic animation effect on images when they enter the viewport.
 
-### Usage
+#### Usage
 ```javascript
-FerroTextWaves(selector, txt, color1, color2);
+Ferro.elasticImg(element, style);
 ```
 
-### Parameters
-- `selector` (string): CSS selector for the element to which the effect will be applied.
-- `txt` (string): Text to be displayed.
-- `color1` (string): Color for the text outline. (Optional, default is "#fff")
-- `color2` (string): Color for the text fill. (Optional, default is the same as `color1`)
+#### Parameters
+- `element` (string): CSS selector for the image element.
+- `style` (number, optional): Style of the animation (0 for height, 1 for width, 2 for both). Default is 0.
 
-### Example
+#### Example
 ```javascript
-FerroTextWaves(".box1", "Ferro.js", "#000", "#fff");
+Ferro.elasticImg(".box", 2);
 ```
 
-## FerroImgShift
+### `imgShift`
 
-This function creates a parallax shift effect on images.
+Creates a parallax shift effect on images.
 
-### Usage
+#### Usage
 ```javascript
-FerroImgShift(element, eff);
+Ferro.imgShift(element, eff);
 ```
 
-### Parameters
+#### Parameters
 - `element` (string): CSS selector for the element containing the image.
-- `eff` (number): Amount of vertical shift (in vh). (Optional, default is 10)
+- `eff` (number, optional): Amount of vertical shift (in vh). Default is 10.
 
-### Example
+#### Example
 ```javascript
-FerroImgShift(".box", 20);
+Ferro.imgShift(".box", 20);
 ```
 
-## FerroElasticImg
+### `textWaves`
 
-This function creates an elastic effect on images when they enter the viewport.
+Creates a wave effect on text with customizable colors for the outline and fill.
 
-### Usage
+#### Usage
 ```javascript
-FerroElasticImg(element, style);
+Ferro.textWaves(selector, txt, color1, color2);
 ```
 
-### Parameters
-- `element` (string): CSS selector for the element to which the effect will be applied.
-- `style` (number): Style of the animation (0 for height, 1 for width, 2 for both). (Optional, default is 0)
+#### Parameters
+- `selector` (string): CSS selector for the element to which the wave effect will be applied.
+- `txt` (string): Text to display.
+- `color1` (string, optional): Color for the text outline. Default is "#fff".
+- `color2` (string, optional): Color for the text fill. Default is the same as `color1`.
 
-### Example
+#### Example
 ```javascript
-FerroElasticImg(".box", 2);
+Ferro.textWaves(".box1", "Ferro.js", "#000", "#fff");
 ```
 
-## FerroTextUnderline
+### `textSplit`
 
-This function adds an underline effect to text elements.
+Splits text into words and animates them with various effects when they enter the viewport.
 
-### Usage
+#### Usage
 ```javascript
-FerroTextUnderline(buttons, cl, height);
+Ferro.textSplit(selector, scrub, style, st, ed);
 ```
 
-### Parameters
-- `buttons` (string): CSS selector for the elements to which the effect will be applied.
-- `cl` (string): Color of the underline. (Optional, default is "#000")
-- `height` (string): Height of the underline. (Optional, default is "3px")
+#### Parameters
+- `selector` (string): CSS selector for the text elements.
+- `scrub` (boolean, optional): If true, enables ScrollTrigger for the animation. Default is false.
+- `style` (number, optional): Style of the animation (0 to 4). Default is 0.
+- `st` (string, optional): Scroll start position (e.g., "top"). Default is "top".
+- `ed` (string, optional): Scroll end position (e.g., "70%"). Default is "70%".
 
-### Example
+#### Example
 ```javascript
-FerroTextUnderline(".btn", "green", "5px");
+Ferro.textSplit(".text", 1, 4, "0%", "5%");
+```
+
+### `magnet`
+
+Creates a magnetic cursor effect on specified elements.
+
+#### Usage
+```javascript
+Ferro.magnet(selector, sensitivity);
+```
+
+#### Parameters
+- `selector` (string): CSS selector for the elements to apply the magnetic effect.
+- `sensitivity` (number): Sensitivity level (1 to 5).
+
+#### Example
+```javascript
+Ferro.magnet(".ferro-magnet", 3);
+```
+
+### `mouseFollower`
+
+Creates a custom mouse follower element.
+
+#### Usage
+```javascript
+Ferro.mouseFollower(sp, size, blendMode);
+```
+
+#### Parameters
+- `sp` (number, optional): Speed of the follower (0 to 5). Default is 0.
+- `size` (string, optional): Size of the follower ball (e.g., "15px"). Default is "15px".
+- `blendMode` (boolean, optional): If true, enables mix-blend-mode. Default is true.
+
+#### Example
+```javascript
+Ferro.mouseFollower(1, "20px", true);
 ```
 
 ## Additional Notes
@@ -126,6 +172,4 @@ FerroTextUnderline(".btn", "green", "5px");
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 ```
 
-## Conclusion
-
-Ferro.js provides an easy and flexible way to add interactive animations to your web elements. By following the usage instructions and examples provided, you can enhance your website with engaging and dynamic effects.
+---
