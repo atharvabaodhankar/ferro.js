@@ -1,12 +1,16 @@
-// FerroMagnet(".img-box" ,5);
+// Ferro.magnet(".box" ,5);
 
-// FerroTextSplit(".text", 1, 4, "0%", "5%" );
+// Ferro.textSplit(".text", true, 4, "0%", "5%" );
 
-// FerroTextWaves(".box1" , "Ferro.js" , "#000" , "#fff");
+// Ferro.textWaves(".box" , "Ferro.js" , "#000" , "#fff");
 
-// FerroImgShift(".box" , 20);
+// Ferro.imgShift(".box" , 20);
 
-// FerroElasticImg(".box" , 0);
+// Ferro.elasticImg(".box" , 0);
 
-// FerroTextUnderline(".btn" , "green", "5px");
+// Ferro.textUnderline(".btn" , "green", "5px");
+
+// Ferro.cardShow(".box" , 8 , true , "top" , "70%");
+
+// Ferro.mouseFollower(1,"20px" , true);
 

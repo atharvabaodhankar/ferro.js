@@ -1,144 +1,295 @@
-// Ferro Magnet
-function FerroMagnet(selector, sensitivity) {
-  const FerroMagnets = document.querySelectorAll(selector);
+const Ferro = {
+  // Ferro Card Show
+  cardShow: function (
+    selector,
+    style = 0,
+    srb = false,
+    st = "top",
+    ed = "70%"
+  ) {
+    const FerroCards = document.querySelectorAll(selector);
+    FerroCards[0].parentNode.style.overflow = "hidden";
 
-  const sensitivityValues = {
-    1: 20,
-    2: 18,
-    3: 15,
-    4: 12,
-    5: 10,
-  };
+    let animationProps;
+    switch (style) {
+      case 1:
+        animationProps = {
+          opacity: 0,
+          rotation: 60,
+          y: 50,
+          stagger: 0.1,
+        };
+        break;
+      case 2:
+        animationProps = {
+          opacity: 0,
+          scale: 0.5,
+          y: 50,
+          stagger: 0.1,
+        };
+        break;
+      case 3:
+        animationProps = {
+          opacity: 0,
+          x: 50,
+          y: 50,
+          stagger: 0.1,
+        };
+        break;
+      case 4:
+        animationProps = {
+          opacity: 0,
+          y: -50,
+          stagger: 0.1,
+          duration: 1,
+        };
+        break;
+      case 5:
+        animationProps = {
+          opacity: 0,
+          x: -50,
+          stagger: 0.1,
+          duration: 1,
+        };
+        break;
+      case 6:
+        animationProps = {
+          opacity: 0,
+          skewX: 10,
+          stagger: 0.1,
+          duration: 1,
+        };
+        break;
+      case 7:
+        animationProps = {
+          opacity: 0,
+          skewY: 10,
+          stagger: 0.1,
+          duration: 1,
+        };
+        break;
+      case 8:
+        animationProps = {
+          opacity: 0,
+          skewY: 10,
+          x: 200,
+          stagger: 0.1,
+          duration: 1,
+        };
+        break;
+      default:
+        animationProps = {
+          opacity: 0,
+          y: 50,
+          stagger: 0.1,
+        };
+    }
 
-  FerroMagnets.forEach((FerroMagnet) => {
-    const appliedSensitivity = sensitivityValues[sensitivity] || 20;
-
-    FerroMagnet.addEventListener("mousemove", (e) => {
-      const centerX = innerWidth / 2;
-      const centerY = innerHeight / 2;
-      const offsetX = e.pageX - centerX;
-      const offsetY = e.pageY - centerY;
-
-      gsap.to(FerroMagnet, {
-        x: offsetX / appliedSensitivity,
-        y: offsetY / appliedSensitivity,
-      });
-    });
-
-    FerroMagnet.addEventListener("mouseleave", (e) => {
-      gsap.to(FerroMagnet, {
-        x: 0,
-        y: 0,
-      });
-    });
-  });
-}
-// Usage : FerroMagnet(".ferro-magnet", 1 to 5 Sens)
-
-// Ferro Text Split
-function FerroTextSplit(
-  selector,
-  scrub = 0,
-  style = 0,
-  st = "top",
-  ed = "70%"
-) {
-  const FerroTextSplits = document.querySelectorAll(selector);
-
-  FerroTextSplits.forEach((FerroTextSplit) => {
-    let splitText = FerroTextSplit.textContent.split(" ");
-    let combinedText = "";
-    splitText.forEach((st) => {
-      combinedText += `<span>${st}&nbsp;</span>`;
-    });
-    FerroTextSplit.innerHTML = combinedText;
-
-    gsap.from(FerroTextSplit.querySelectorAll("span"), {
-      duration: 1,
-      skewX: style === 1 ? 10 : 0,
-      y: style === 2 ? -50 : 50, // Add y-axis variation
-      opacity: 0,
-      stagger: 0.05,
-      scale: style === 3 ? 0.8 : 1, // Add scale variation
-      rotate: style === 4 ? 5 : 0, // Add rotation variation
-      scrollTrigger: scrub
+    gsap.from(FerroCards, {
+      ...animationProps,
+      scrollTrigger: srb
         ? {
-            trigger: FerroTextSplit,
+            trigger: FerroCards[0].parentNode,
             scrub: 3,
-            start: `${st} center`,
-            end: `${ed} center`,
+            start: `${st} 70%`,
+            end: `${ed} 70%`,
           }
         : {
-            trigger: FerroTextSplit,
+            trigger: FerroCards,
           },
     });
-  });
-}
-// Usage : FerroTextSplit(".text", 1, 4, "0%", "5%" );
+  },
+  // Usage : FerroCardShow('.card', 3);
 
-// Ferro Text Waves
-function FerroTextWaves(selector, txt, color1 = "#fff", color2 = color1) {
-  const FerroTextWave = document.querySelector(selector);
+  // Ferro Text Underline
+  textUnderline: function (buttons, cl = "#000", height = "3px") {
+    var btn = document.querySelectorAll(buttons);
+    btn.forEach((bt) => {
+      bt.classList.add("ferro-text-underline");
 
-  FerroTextWave.classList.add("ferro-text-waves");
-  let FerroText1 = document.createElement("h1");
-  let FerroText2 = document.createElement("h1");
+      bt.style.setProperty("--f-text-underline", cl);
+      bt.style.setProperty("--f-text-underline-height", height);
+    });
+  },
+  // Usage : FerroTextUnderline(".btn" , "green", "5px");
 
-  FerroText1.innerText = txt;
-  FerroText2.innerText = txt;
+  // Ferro Elastic Img
 
-  FerroText1.style["-webkit-text-stroke"] = `2px ${color1}`;
-  FerroText2.style.color = color2;
+  elasticImg: function (element, style = 0) {
+    const options = {
+      0: { height: 0 },
+      1: { width: 0 },
+      2: { height: 0, width: 0 },
+    };
 
-  FerroTextWave.appendChild(FerroText1);
-  FerroTextWave.appendChild(FerroText2);
-}
+    const selectedOptions = options[style <= 2 ? style : 2];
 
-// Usage :  FerroTextWaves(".box1" , "Ferro.js" , "#000" , "#fff");
+    gsap.from(element, {
+      ...selectedOptions,
+      scale: 0.9,
+      ease: "elastic",
+      duration: 3,
+      scrollTrigger: { trigger: element },
+    });
+  },
+  // Usage : FerroElasticImg(".box" , 0(height) or 1(width) or 2(height and width));
 
-// Ferro Parallax Img
+  // Ferro Parallax Img
+  imgShift: function (element, eff = 10) {
+    const ele = document.querySelector(element);
+    ele.classList.add("ferro-img-shift");
+    gsap.fromTo(
+      ele.querySelector("img"),
+      { y: `${eff * -1}vh` },
+      { y: `${eff}vh`, scrollTrigger: { trigger: element, scrub: 3 } }
+    );
+  },
+  // Usage : FerroImgShift(".box" , 20);
 
-function FerroImgShift(element, eff = 10) {
-  const ele = document.querySelector(element);
-  ele.classList.add("ferro-img-shift");
-  gsap.fromTo(
-    ele.querySelector("img"),
-    { y: `${eff * -1}vh` },
-    { y: `${eff}vh`, scrollTrigger: { trigger: element, scrub: 3 } }
-  );
-}
-// Usage : FerroImgShift(".box" , 20);
+  // Ferro Text Waves
 
-// Ferro Elastic Img
+  textWaves: function (selector, txt, color1 = "#fff", color2 = color1) {
+    const FerroTextWave = document.querySelector(selector);
 
-function FerroElasticImg(element, style = 0) {
-  const options = {
-    0: { height: 0 },
-    1: { width: 0 },
-    2: { height: 0, width: 0 },
-  };
+    FerroTextWave.classList.add("ferro-text-waves");
+    let FerroText1 = document.createElement("h1");
+    let FerroText2 = document.createElement("h1");
 
-  const selectedOptions = options[style <= 2 ? style : 2];
+    FerroText1.innerText = txt;
+    FerroText2.innerText = txt;
 
-  gsap.from(element, {
-    ...selectedOptions,
-    scale: 0.9,
-    ease: "elastic",
-    duration: 3,
-    scrollTrigger: { trigger: element },
-  });
-}
+    FerroText1.style["-webkit-text-stroke"] = `2px ${color1}`;
+    FerroText2.style.color = color2;
 
-// Usage : FerroElasticImg(".box" , 0(height) or 1(width) or 2(height and width));
+    FerroTextWave.appendChild(FerroText1);
+    FerroTextWave.appendChild(FerroText2);
+  },
+  // Usage :  FerroTextWaves(".box1" , "Ferro.js" , "#000" , "#fff");
 
-// Ferro Text Underline
-function FerroTextUnderline(buttons, cl = "#000" , height = "3px") {
-  var btn = document.querySelectorAll(buttons);
-  btn.forEach((bt) => {
-    bt.classList.add("ferro-text-underline");
+  // Ferro Text Split
+  textSplit: function (
+    selector,
+    scrub = false,
+    style = 0,
+    st = "top",
+    ed = "70%"
+  ) {
+    const FerroTextSplits = document.querySelectorAll(selector);
 
-    bt.style.setProperty("--f-text-underline", cl);
-    bt.style.setProperty("--f-text-underline-height", height);
-  });
-}
-// Usage : FerroTextUnderline(".btn" , "green", "5px");
+    FerroTextSplits.forEach((FerroTextSplit) => {
+      let splitText = FerroTextSplit.textContent.split(" ");
+      let combinedText = "";
+      splitText.forEach((st) => {
+        combinedText += `<span>${st}&nbsp;</span>`;
+      });
+      FerroTextSplit.innerHTML = combinedText;
+
+      gsap.from(FerroTextSplit.querySelectorAll("span"), {
+        duration: 1,
+        skewX: style === 1 ? 10 : 0,
+        y: style === 2 ? -50 : 50, // Add y-axis variation
+        opacity: 0,
+        stagger: 0.05,
+        scale: style === 3 ? 0.8 : 1, // Add scale variation
+        rotate: style === 4 ? 5 : 0, // Add rotation variation
+        scrollTrigger: scrub
+          ? {
+              trigger: FerroTextSplit,
+              scrub: 3,
+              start: `${st} center`,
+              end: `${ed} center`,
+            }
+          : {
+              trigger: FerroTextSplit,
+            },
+      });
+    });
+  },
+  // Usage : FerroTextSplit(".text", 1, 4, "0%", "5%" );
+  // Ferro Magnet
+
+  magnet: function (selector, sensitivity) {
+    const FerroMagnets = document.querySelectorAll(selector);
+
+    const sensitivityValues = {
+      1: 20,
+      2: 18,
+      3: 15,
+      4: 12,
+      5: 10,
+    };
+
+    FerroMagnets.forEach((FerroMagnet) => {
+      const appliedSensitivity = sensitivityValues[sensitivity] || 20;
+
+      FerroMagnet.addEventListener("mousemove", (e) => {
+        const centerX = innerWidth / 2;
+        const centerY = innerHeight / 2;
+        const offsetX = e.pageX - centerX;
+        const offsetY = e.pageY - centerY;
+
+        gsap.to(FerroMagnet, {
+          x: offsetX / appliedSensitivity,
+          y: offsetY / appliedSensitivity,
+        });
+      });
+
+      FerroMagnet.addEventListener("mouseleave", (e) => {
+        gsap.to(FerroMagnet, {
+          x: 0,
+          y: 0,
+        });
+      });
+    });
+  },
+  // Usage : FerroMagnet(".ferro-magnet", 1 to 5 Sens)
+
+  mouseFollower(sp = 0, size = "15px", blendMode = true) {
+    const FerroMouseBall = document.createElement("div");
+    FerroMouseBall.className = "ferro-mouse-follower-ball";
+    document.body.insertBefore(FerroMouseBall, document.body.firstChild);
+    FerroMouseBall.style.setProperty("--f-m-ball-size", size);
+    
+    
+    const speedMap = {
+      0: 0.08,
+      1: 0.1,
+      2: 0.2,
+      3: 0.3,
+      4: 0.4,
+      5: 0.5,
+    };
+
+    speed = speedMap[sp] || 0.05;
+
+    gsap.set(FerroMouseBall, {
+      xPercent: -50,
+      yPercent: -50,
+      mixBlendMode: blendMode ? "difference" : "normal",
+    });
+
+    const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    const mouse = { x: pos.x, y: pos.y };
+
+    const xSet = gsap.quickSetter(FerroMouseBall, "x", "px");
+    const ySet = gsap.quickSetter(FerroMouseBall, "y", "px");
+
+    window.addEventListener("mousemove", (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+
+    gsap.ticker.add(() => {
+      const dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio());
+      pos.x += (mouse.x - pos.x) * dt;
+      pos.y += (mouse.y - pos.y) * dt;
+      xSet(pos.x);
+      ySet(pos.y);
+    });
+  },
+
+  // Usage : Ferro.mouseFollower(1,"20px" , true);
+
+
+  // Add more methods as needed
+};

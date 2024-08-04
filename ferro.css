@@ -90,3 +90,18 @@ span{
     transform-origin: bottom left;
 }
 /* Ferro Text Underline End */
+
+/* Ferro Mouse Follower */
+.ferro-mouse-follower-ball {
+    --f-m-ball-size : 50px;
+    width: var(--f-m-ball-size);
+    height: var(--f-m-ball-size);;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    border-radius: 50%;
+    mix-blend-mode: difference;
+    z-index: 100;
+}
+/* Ferro Mouse Follower End */
