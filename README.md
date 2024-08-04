@@ -1,5 +1,3 @@
-Here’s an enhanced README that includes the optional arguments for each function in the `Ferro` object:
-
 ---
 
 # Ferro.js
