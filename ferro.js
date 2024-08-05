@@ -573,7 +573,7 @@ const Ferro = {
         }
     });
   }
-  // Usage : Ferro.headingEffect(".h1", 7)
+  // Usage : Ferro.headingEffect(".h1", 7) 
 
   // Add more methods as needed
 };
