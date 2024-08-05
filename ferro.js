@@ -244,7 +244,7 @@ const Ferro = {
   },
   // Usage : FerroMagnet(".ferro-magnet", 1 to 5 Sens)
 
-  mouseFollower(sp = 0, size = "15px", blendMode = true) {
+  mouseFollower : function(sp = 0, size = "15px", blendMode = true) {
     const FerroMouseBall = document.createElement("div");
     FerroMouseBall.className = "ferro-mouse-follower-ball";
     document.body.insertBefore(FerroMouseBall, document.body.firstChild);
@@ -290,6 +290,290 @@ const Ferro = {
 
   // Usage : Ferro.mouseFollower(1,"20px" , true);
 
+  // Ferro Heading Effects
+
+  headingEffect : function(selector, style = 0) {
+    let headings = document.querySelectorAll(selector);
+
+    headings.forEach(heading => {
+        let characters = heading.textContent.split('');
+        let combined = characters.map(char => `<span>${char}</span>`).join('');
+        heading.innerHTML = combined;
+        let spans = heading.querySelectorAll('span');
+        let mid = spans.length / 2;
+        spans.forEach((ele, idx) => {
+            if (idx < mid) ele.classList.add("left");
+            else ele.classList.add("right");
+        });
+
+        switch (style) {
+            case 1:
+                gsap.from(`${selector} span.left`, {
+                    y: 150,
+                    rotation: 60,
+                    duration: 1,
+                    stagger: 0.1,
+                    opacity: 0,
+                    delay : 0.5,
+                    scrollTrigger: {
+                        trigger: heading,
+                    },
+                });
+                gsap.from(`${selector} span.right`, {
+                    y: 150,
+                    rotation: -60,
+                    duration: 1,
+                    stagger: -0.1,
+                    opacity: 0,
+                    delay : 0.5,
+                    scrollTrigger: {
+                        trigger: heading,
+                    },
+                });
+                break;
+            case 2:
+                gsap.from(`${selector} span.left`, {
+                    x: -50,
+                    scale: 0.5,
+                    duration: 1,
+                    stagger: 0.1,
+                    opacity: 0,
+                    delay : 0.5,
+                    scrollTrigger: {
+                        trigger: heading,
+                    },
+                });
+                gsap.from(`${selector} span.right`, {
+                    x: 50,
+                    scale: 0.5,
+                    duration: 1,
+                    stagger: -0.1,
+                    opacity: 0,
+                    delay : 0.5,
+                    scrollTrigger: {
+                        trigger: heading,
+                    },
+                });
+                break;
+            case 3:
+                gsap.from(`${selector} span.left`, {
+                    y: -50,
+                    skewX: 45,
+                    duration: 1,
+                    stagger: 0.1,
+                    opacity: 0,
+                    delay : 0.5,
+                    scrollTrigger: {
+                        trigger: heading,
+                    },
+                });
+                gsap.from(`${selector} span.right`, {
+                    y: -50,
+                    skewX: -45,
+                    duration: 1,
+                    stagger: -0.1,
+                    opacity: 0,
+                    delay : 0.5,
+                    scrollTrigger: {
+                        trigger: heading,
+                    },
+                });
+                break;
+            case 4:
+                gsap.from(`${selector} span.left`, {
+                    y: 150,
+                    duration: 1,
+                    stagger: 0.1,
+                    opacity: 0,
+                    delay : 0.5,
+                    ease: "bounce.out",
+                    scrollTrigger: {
+                        trigger: heading,
+                    },
+                });
+                gsap.from(`${selector} span.right`, {
+                    y: 150,
+                    duration: 1,
+                    stagger: -0.1,
+                    opacity: 0,
+                    delay : 0.5,
+                    ease: "bounce.out",
+                    scrollTrigger: {
+                        trigger: heading,
+                    },
+                });
+                break;
+            case 5:
+                gsap.from(`${selector} span.left`, {
+                    y: 150,
+                    duration: 1,
+                    stagger: 0.1,
+                    opacity: 0,
+                    delay : 0.5,
+                    ease: "elastic.out(1, 0.3)",
+                    scrollTrigger: {
+                        trigger: heading,
+                    },
+                });
+                gsap.from(`${selector} span.right`, {
+                    y: 150,
+                    duration: 1,
+                    stagger: -0.1,
+                    opacity: 0,
+                    delay : 0.5,
+                    ease: "elastic.out(1, 0.3)",
+                    scrollTrigger: {
+                        trigger: heading,
+                    },
+                });
+                break;
+            case 6:
+                gsap.from(`${selector} span.left`, {
+                    x: -100,
+                    duration: 1,
+                    stagger: 0.1,
+                    opacity: 0,
+                    delay : 0.5,
+                    ease: "power4.out",
+                    scrollTrigger: {
+                        trigger: heading,
+                    },
+                });
+                gsap.from(`${selector} span.right`, {
+                    x: 100,
+                    duration: 1,
+                    stagger: -0.1,
+                    opacity: 0,
+                    delay : 0.5,
+                    ease: "power4.out",
+                    scrollTrigger: {
+                        trigger: heading,
+                    },
+                });
+                break;
+            case 7:
+                gsap.from(`${selector} span.left`, {
+                    y: 100,
+                    duration: 1.5,
+                    stagger: -0.1,
+                    opacity: 0,
+                    delay : 0.5,
+                    delay: 0.5,
+                    ease: "elastic",
+                    scrollTrigger: {
+                        trigger: heading,
+                    },
+                });
+                gsap.from(`${selector} span.right`, {
+                    y: 100,
+                    duration: 1.5,
+                    stagger: 0.1,
+                    opacity: 0,
+                    delay : 0.5,
+                    delay: 0.5,
+                    ease: "elastic",
+                    scrollTrigger: {
+                        trigger: heading,
+                    },
+                });
+                break;
+            case 8:
+                gsap.from(`${selector} span.left`, {
+                    rotationY: 180,
+                    duration: 1,
+                    stagger: 0.1,
+                    opacity: 0,
+                    delay : 0.5,
+                    scrollTrigger: {
+                        trigger: heading,
+                    },
+                });
+                gsap.from(`${selector} span.right`, {
+                    rotationY: -180,
+                    duration: 1,
+                    stagger: -0.1,
+                    opacity: 0,
+                    delay : 0.5,
+                    scrollTrigger: {
+                        trigger: heading,
+                    },
+                });
+                break;
+            case 9:
+                gsap.from(`${selector} span.left`, {
+                    scale: 0,
+                    duration: 1,
+                    stagger: 0.1,
+                    opacity: 0,
+                    delay : 0.5,
+                    ease: "back.out(1.7)",
+                    scrollTrigger: {
+                        trigger: heading,
+                    },
+                });
+                gsap.from(`${selector} span.right`, {
+                    scale: 0,
+                    duration: 1,
+                    stagger: -0.1,
+                    opacity: 0,
+                    delay : 0.5,
+                    ease: "back.out(1.7)",
+                    scrollTrigger: {
+                        trigger: heading,
+                    },
+                });
+                break;
+            case 10:
+                gsap.from(`${selector} span.left`, {
+                    x: -50,
+                    y: -50,
+                    duration: 1,
+                    stagger: 0.1,
+                    opacity: 0,
+                    delay : 0.5,
+                    ease: "circ.out",
+                    scrollTrigger: {
+                        trigger: heading,
+                    },
+                });
+                gsap.from(`${selector} span.right`, {
+                    x: 50,
+                    y: 50,
+                    duration: 1,
+                    stagger: -0.1,
+                    opacity: 0,
+                    delay : 0.5,
+                    ease: "circ.out",
+                    scrollTrigger: {
+                        trigger: heading,
+                    },
+                });
+                break;
+            default:
+                gsap.from(`${selector} span.left`, {
+                    y: 150,
+                    duration: 1,
+                    stagger: 0.1,
+                    opacity: 0,
+                    delay : 0.5,
+                    scrollTrigger: {
+                        trigger: heading,
+                    },
+                });
+                gsap.from(`${selector} span.right`, {
+                    y: 150,
+                    duration: 1,
+                    stagger: -0.1,
+                    opacity: 0,
+                    delay : 0.5,
+                    scrollTrigger: {
+                        trigger: heading,
+                    },
+                });
+        }
+    });
+  }
+  // Usage : Ferro.headingEffect(".h1", 7)
 
   // Add more methods as needed
 };

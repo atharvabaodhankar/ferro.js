@@ -14,3 +14,5 @@
 
 // Ferro.mouseFollower(1,"20px" , true);
 
+// Ferro.headingEffect(".h1", 7)
+
