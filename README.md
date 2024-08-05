@@ -1,4 +1,9 @@
 ---
+# Ferro.js
+
+![Ferro.js Logo](./img.jpg)
+
+Ferro.js is a JavaScript animation library that brings your web pages to life with vibrant and dynamic animations...
 
 # Ferro.js
 
