@@ -5,6 +5,51 @@
 
 Ferro.js is a JavaScript library for adding interactive animations and effects to web elements using GSAP (GreenSock Animation Platform). This library includes various functions to create engaging animations and effects such as card reveals, text animations, parallax images, and more. Below are the detailed instructions and options for using each function.
 
+
+## Getting Started
+
+To use the animation effects provided by `Ferro.js` and `Ferro.css`, follow the steps below:
+
+### 1. Download the Files
+
+First, download the `Ferro.js` and `Ferro.css` files from the repository or source provided.
+
+### 2. Include GSAP and ScrollTrigger
+
+Include the GSAP library and the ScrollTrigger plugin in your HTML file. These are required for the animations to work.
+
+```html
+  <!-- GSAP Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+          integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- GSAP ScrollTrigger Plugin -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+          integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+```
+
+### 3. Add Ferro.css
+
+Include the `Ferro.css` file in your HTML `<head>` section.
+
+```html
+<link rel="stylesheet" href="path/to/ferro.css">
+```
+
+### 4. Add Ferro.js
+
+Include the `Ferro.js` file at the end of your HTML `<body>` section to ensure it loads after the GSAP and ScrollTrigger scripts.
+
+```html
+<script src="path/to/ferro.js"></script>
+```
+
+### 5. Using the Effects
+
+You can now use the various effects provided by `Ferro.js` by calling the respective methods on your elements.
+
 ## Ferro Functions
 
 ### `cardShow`
