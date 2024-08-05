@@ -52,6 +52,48 @@ You can now use the various effects provided by `Ferro.js` by calling the respec
 
 ## Ferro Functions
 
+
+## `headingEffect`
+
+The `headingEffect` function applies animated effects to headings on your webpage using GSAP (GreenSock Animation Platform) and ScrollTrigger. This function divides the text content of the selected headings into individual characters and animates them based on the specified style.
+
+### Parameters
+
+- **`selector`** (string): A CSS selector to target the heading elements.
+- **`style`** (number, optional): Determines the type of animation applied. The default value is `0`. Styles are as follows:
+  - `1`: Bounce and rotation effect.
+  - `2`: Scaling and translation effect.
+  - `3`: Skew and translation effect.
+  - `4`: Bounce effect.
+  - `5`: Elastic effect.
+  - `6`: Power4 easing effect.
+  - `7`: Elastic effect with increased duration.
+  - `8`: RotationY effect.
+  - `9`: Scaling effect with back easing.
+  - `10`: Combined translation effect with circ easing.
+
+### Usage
+
+```javascript
+Ferro.headingEffect(".h1", 7);
+```
+
+This will apply the effect with `style` 7 (elastic animation) to all elements matching the `.h1` selector.
+
+### Example
+
+To apply an elastic effect to all headings with the class `.h1`, you would use:
+
+```javascript
+Ferro.headingEffect(".h1", 7);
+```
+
+This will animate each character of the heading as the user scrolls, creating a dynamic and engaging visual effect.
+
+---
+
+
+
 ### `cardShow`
 
 Creates an animated reveal effect for card elements.
