@@ -12,7 +12,7 @@
 
 // Ferro.cardShow(".box" , 8 , true , "top" , "70%");
 
-// Ferro.mouseFollower(1,"20px" , true);
+// Ferro.mouseFollower(1,"20px" , true , [".h1"]);
 
 // Ferro.headingEffect(".h1", 7)
 

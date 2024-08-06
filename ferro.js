@@ -244,28 +244,27 @@ const Ferro = {
   },
   // Usage : FerroMagnet(".ferro-magnet", 1 to 5 Sens)
 
-  mouseFollower : function(sp = 0, size = "15px", blendMode = true) {
+  mouseFollower: function(sp = 0, size = "15px", blendMode = true, selectors = []) {
     const FerroMouseBall = document.createElement("div");
     FerroMouseBall.className = "ferro-mouse-follower-ball";
     document.body.insertBefore(FerroMouseBall, document.body.firstChild);
     FerroMouseBall.style.setProperty("--f-m-ball-size", size);
     
-    
     const speedMap = {
-      0: 0.08,
-      1: 0.1,
-      2: 0.2,
-      3: 0.3,
-      4: 0.4,
-      5: 0.5,
+        0: 0.08,
+        1: 0.1,
+        2: 0.2,
+        3: 0.3,
+        4: 0.4,
+        5: 0.5,
     };
 
-    speed = speedMap[sp] || 0.05;
+    const speed = speedMap[sp] || 0.05;
 
     gsap.set(FerroMouseBall, {
-      xPercent: -50,
-      yPercent: -50,
-      mixBlendMode: blendMode ? "difference" : "normal",
+        xPercent: -50,
+        yPercent: -50,
+        mixBlendMode: blendMode ? "difference" : "normal",
     });
 
     const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
@@ -275,20 +274,36 @@ const Ferro = {
     const ySet = gsap.quickSetter(FerroMouseBall, "y", "px");
 
     window.addEventListener("mousemove", (e) => {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
     });
 
     gsap.ticker.add(() => {
-      const dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio());
-      pos.x += (mouse.x - pos.x) * dt;
-      pos.y += (mouse.y - pos.y) * dt;
-      xSet(pos.x);
-      ySet(pos.y);
+        const dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio());
+        pos.x += (mouse.x - pos.x) * dt;
+        pos.y += (mouse.y - pos.y) * dt;
+        xSet(pos.x);
+        ySet(pos.y);
     });
-  },
 
-  // Usage : Ferro.mouseFollower(1,"20px" , true);
+    // Add event listeners for elements in the selectors array to scale the mouse follower
+    selectors.forEach(selector => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                const elementHeight = element.offsetHeight;
+                const currentSize = parseFloat(size);
+                const newScale = elementHeight / currentSize;
+                gsap.to(FerroMouseBall, { scale: newScale, duration: 0.3 });
+            });
+            element.addEventListener('mouseleave', () => {
+                gsap.to(FerroMouseBall, { scale: 1, duration: 0.3 });
+            });
+        });
+    });
+}
+,
+  // Usage : Ferro.mouseFollower(0, "15px", true, [".box1", ".box2"]);
 
   // Ferro Heading Effects
 

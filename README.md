@@ -42,7 +42,7 @@ Include the `Ferro.css` and `Ferro.js` files using the following CDN links in yo
 
 
 
-### 5. Using the Effects
+### 3. Using the Effects
 
 You can now use the various effects provided by `Ferro.js` by calling the respective methods on your elements.
 
@@ -225,24 +225,32 @@ Ferro.magnet(selector, sensitivity);
 Ferro.magnet(".ferro-magnet", 3);
 ```
 
+
 ### `mouseFollower`
 
 Creates a custom mouse follower element.
 
 #### Usage
 ```javascript
-Ferro.mouseFollower(sp, size, blendMode);
+Ferro.mouseFollower(sp, size, blendMode, selectors);
 ```
 
 #### Parameters
 - `sp` (number, optional): Speed of the follower (0 to 5). Default is 0.
 - `size` (string, optional): Size of the follower ball (e.g., "15px"). Default is "15px".
 - `blendMode` (boolean, optional): If true, enables mix-blend-mode. Default is true.
+- `selectors` (array, optional): Array of CSS selectors. When the mouse hovers over elements matching these selectors, the follower ball scales to cover the element.
 
 #### Example
 ```javascript
-Ferro.mouseFollower(1, "20px", true);
+Ferro.mouseFollower(1, "20px", true, ['h1', '.hover-scale']);
 ```
+
+This example creates a custom mouse follower with the following settings:
+- Speed: 1
+- Size: 20px
+- Mix-blend-mode enabled
+- The follower ball will scale to cover any `h1` element or elements with the class `.hover-scale` when hovered.
 
 ## Additional Notes
 
