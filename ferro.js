@@ -286,7 +286,6 @@ const Ferro = {
         ySet(pos.y);
     });
 
-    // Add event listeners for elements in the selectors array to scale the mouse follower
     selectors.forEach(selector => {
         const elements = document.querySelectorAll(selector);
         elements.forEach(element => {
