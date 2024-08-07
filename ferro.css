@@ -103,6 +103,7 @@ span{
     border-radius: 50%;
     mix-blend-mode: difference;
     z-index: 100;
+    pointer-events: none;
 }
 /* Ferro Mouse Follower End */
 
