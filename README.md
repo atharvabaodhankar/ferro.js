@@ -51,7 +51,7 @@ You can now use the various effects provided by `Ferro.js` by calling the respec
 ## Ferro Functions
 
 
-## headingEffect
+## Heading Effect
 
 The `headingEffect` function applies animated effects to headings on your webpage using GSAP (GreenSock Animation Platform) and ScrollTrigger. This function divides the text content of the selected headings into individual characters and animates them based on the specified style.
 
@@ -88,11 +88,9 @@ Ferro.headingEffect(".h1", 7);
 
 This will animate each character of the heading as the user scrolls, creating a dynamic and engaging visual effect.
 
---
 
 
-
-## cardShow
+## Card Show Effect
 
 Creates an animated reveal effect for card elements.
 
@@ -112,7 +110,7 @@ Ferro.cardShow(selector, style, srb, st, ed);
 ```javascript
 Ferro.cardShow('.card', 3);
 ```
-## button
+## Button Hover
 
 The `button` function adds a smooth animation effect to buttons on your webpage. It utilizes a custom CSS transition to create a visually appealing animation when the button is hovered over or clicked.
 
@@ -141,7 +139,7 @@ Ferro.button(".btn", 0.5, "ease");
 This will apply the animation effect with a duration of `0.5` seconds and the `ease` easing function to all elements matching the `.btn` selector.
 
 
-## textUnderline
+## Text Underline Effect
 
 Adds a customizable underline effect to text elements.
 
@@ -160,7 +158,7 @@ Ferro.textUnderline(buttons, cl, height);
 Ferro.textUnderline(".btn", "green", "5px");
 ```
 
-## elasticImg
+## Elastic Image Effect
 
 Creates an elastic animation effect on images when they enter the viewport.
 
@@ -178,7 +176,7 @@ Ferro.elasticImg(element, style);
 Ferro.elasticImg(".box", 2);
 ```
 
-## imgShift
+## Parallax Image Effect
 
 Creates a parallax shift effect on images.
 
@@ -196,7 +194,7 @@ Ferro.imgShift(element, eff);
 Ferro.imgShift(".box", 20);
 ```
 
-## textWaves
+## Text Waves Effect
 
 Creates a wave effect on text with customizable colors for the outline and fill.
 
@@ -216,7 +214,7 @@ Ferro.textWaves(selector, txt, color1, color2);
 Ferro.textWaves(".box1", "Ferro.js", "#000", "#fff");
 ```
 
-## textSplit
+## Text Split Effect
 
 Splits text into words and animates them with various effects when they enter the viewport.
 
@@ -237,7 +235,7 @@ Ferro.textSplit(selector, scrub, style, st, ed);
 Ferro.textSplit(".text", 1, 4, "0%", "5%");
 ```
 
-## magnet
+## Magnet Effect
 
 Creates a magnetic cursor effect on specified elements.
 
@@ -256,7 +254,7 @@ Ferro.magnet(".ferro-magnet", 3);
 ```
 
 
-## mouseFollower
+## Mouse Follower
 
 Creates a custom mouse follower element.
 
