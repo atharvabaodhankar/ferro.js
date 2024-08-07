@@ -586,8 +586,31 @@ const Ferro = {
                 });
         }
     });
-  }
-  // Usage : Ferro.headingEffect(".h1", 7) 
+  },
+  // Usage : Ferro.headingEffect(".h1", 7)
+
+  // Ferro Button
+  button: function (selector, time = 0.5 , easing = "cubic-bezier(0.68, -0.55, 0.265, 1.55)") {
+    let buttons = document.querySelectorAll(selector);
+
+    buttons.forEach((button) => {
+      let btnTxt = button.innerText;
+      button.style.transition = `all ${time}s ${easing}`;
+      let btn1 = document.createElement("span");
+      let btn2 = document.createElement("span");
+      console.log(window.getComputedStyle(button).fontSize);
+      button.style.height = window.getComputedStyle(button).fontSize;
+      button.classList.add("ferro-button");
+      btn1.innerText = btnTxt;
+      btn2.innerText = btnTxt;
+
+      button.innerHTML = "";
+      button.appendChild(btn1);
+      button.appendChild(btn2);
+    });
+  },
+
+  // Usage : Ferro.button(".btn" , .5 , "ease");
 
   // Add more methods as needed
 };

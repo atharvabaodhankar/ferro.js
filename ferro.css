@@ -105,3 +105,24 @@ span{
     z-index: 100;
 }
 /* Ferro Mouse Follower End */
+
+/* Ferro Button */
+.ferro-button{
+    height: min-content;
+    overflow: hidden;
+    transition: all .3s ease;
+    span{
+        display: block;
+        color: inherit;
+        transition: inherit;
+        font-size: inherit;
+    }
+}
+.ferro-button:hover span:nth-child(1){
+    transform: translateY(-100%);
+
+}
+.ferro-button:hover span:nth-child(2){
+    transform: translateY(-100%);
+}
+/* Ferro Button End*/

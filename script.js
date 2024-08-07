@@ -16,3 +16,4 @@
 
 // Ferro.headingEffect(".h1", 7)
 
+// Ferro.button(".btn" , .5 , "ease");

@@ -49,7 +49,7 @@ You can now use the various effects provided by `Ferro.js` by calling the respec
 ## Ferro Functions
 
 
-## `headingEffect`
+## headingEffect
 
 The `headingEffect` function applies animated effects to headings on your webpage using GSAP (GreenSock Animation Platform) and ScrollTrigger. This function divides the text content of the selected headings into individual characters and animates them based on the specified style.
 
@@ -90,7 +90,7 @@ This will animate each character of the heading as the user scrolls, creating a 
 
 
 
-### `cardShow`
+### cardShow
 
 Creates an animated reveal effect for card elements.
 
@@ -110,8 +110,36 @@ Ferro.cardShow(selector, style, srb, st, ed);
 ```javascript
 Ferro.cardShow('.card', 3);
 ```
+## button
 
-### `textUnderline`
+The `button` function adds a smooth animation effect to buttons on your webpage. It utilizes a custom CSS transition to create a visually appealing animation when the button is hovered over or clicked.
+
+### Parameters
+
+- **`selector`** (string): A CSS selector to target the button elements.
+- **`time`** (number, optional): The duration of the animation in seconds. The default value is `0.5`.
+- **`easing`** (string, optional): The easing function for the animation. The default value is `"cubic-bezier(0.68, -0.55, 0.265, 1.55)"`.
+
+### Usage
+
+```javascript
+Ferro.button(".btn", 0.5, "ease");
+```
+
+This will apply the animation effect to all buttons with the class `.btn` with a duration of `0.5` seconds and the `ease` easing function.
+
+### Example
+
+To apply a custom button animation effect to all buttons with the class `.btn`, you would use:
+
+```javascript
+Ferro.button(".btn", 0.5, "ease");
+```
+
+This will apply the animation effect with a duration of `0.5` seconds and the `ease` easing function to all elements matching the `.btn` selector.
+
+
+### textUnderline
 
 Adds a customizable underline effect to text elements.
 
@@ -130,7 +158,7 @@ Ferro.textUnderline(buttons, cl, height);
 Ferro.textUnderline(".btn", "green", "5px");
 ```
 
-### `elasticImg`
+### elasticImg
 
 Creates an elastic animation effect on images when they enter the viewport.
 
@@ -148,7 +176,7 @@ Ferro.elasticImg(element, style);
 Ferro.elasticImg(".box", 2);
 ```
 
-### `imgShift`
+### imgShift
 
 Creates a parallax shift effect on images.
 
@@ -166,7 +194,7 @@ Ferro.imgShift(element, eff);
 Ferro.imgShift(".box", 20);
 ```
 
-### `textWaves`
+### textWaves
 
 Creates a wave effect on text with customizable colors for the outline and fill.
 
@@ -186,7 +214,7 @@ Ferro.textWaves(selector, txt, color1, color2);
 Ferro.textWaves(".box1", "Ferro.js", "#000", "#fff");
 ```
 
-### `textSplit`
+### textSplit
 
 Splits text into words and animates them with various effects when they enter the viewport.
 
@@ -207,7 +235,7 @@ Ferro.textSplit(selector, scrub, style, st, ed);
 Ferro.textSplit(".text", 1, 4, "0%", "5%");
 ```
 
-### `magnet`
+### magnet
 
 Creates a magnetic cursor effect on specified elements.
 
@@ -226,7 +254,7 @@ Ferro.magnet(".ferro-magnet", 3);
 ```
 
 
-### `mouseFollower`
+### mouseFollower
 
 Creates a custom mouse follower element.
 
