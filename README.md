@@ -46,6 +46,8 @@ Include the `Ferro.css` and `Ferro.js` files using the following CDN links in yo
 
 You can now use the various effects provided by `Ferro.js` by calling the respective methods on your elements.
 
+---
+
 ## Ferro Functions
 
 
@@ -86,11 +88,11 @@ Ferro.headingEffect(".h1", 7);
 
 This will animate each character of the heading as the user scrolls, creating a dynamic and engaging visual effect.
 
----
+--
 
 
 
-### cardShow
+## cardShow
 
 Creates an animated reveal effect for card elements.
 
@@ -139,7 +141,7 @@ Ferro.button(".btn", 0.5, "ease");
 This will apply the animation effect with a duration of `0.5` seconds and the `ease` easing function to all elements matching the `.btn` selector.
 
 
-### textUnderline
+## textUnderline
 
 Adds a customizable underline effect to text elements.
 
@@ -158,7 +160,7 @@ Ferro.textUnderline(buttons, cl, height);
 Ferro.textUnderline(".btn", "green", "5px");
 ```
 
-### elasticImg
+## elasticImg
 
 Creates an elastic animation effect on images when they enter the viewport.
 
@@ -176,7 +178,7 @@ Ferro.elasticImg(element, style);
 Ferro.elasticImg(".box", 2);
 ```
 
-### imgShift
+## imgShift
 
 Creates a parallax shift effect on images.
 
@@ -194,7 +196,7 @@ Ferro.imgShift(element, eff);
 Ferro.imgShift(".box", 20);
 ```
 
-### textWaves
+## textWaves
 
 Creates a wave effect on text with customizable colors for the outline and fill.
 
@@ -214,7 +216,7 @@ Ferro.textWaves(selector, txt, color1, color2);
 Ferro.textWaves(".box1", "Ferro.js", "#000", "#fff");
 ```
 
-### textSplit
+## textSplit
 
 Splits text into words and animates them with various effects when they enter the viewport.
 
@@ -235,7 +237,7 @@ Ferro.textSplit(selector, scrub, style, st, ed);
 Ferro.textSplit(".text", 1, 4, "0%", "5%");
 ```
 
-### magnet
+## magnet
 
 Creates a magnetic cursor effect on specified elements.
 
@@ -254,7 +256,7 @@ Ferro.magnet(".ferro-magnet", 3);
 ```
 
 
-### mouseFollower
+## mouseFollower
 
 Creates a custom mouse follower element.
 
