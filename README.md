@@ -323,9 +323,5 @@ This example creates a custom mouse follower with the following settings:
 - Ensure GSAP is included in your project for Ferro.js to work correctly.
 - Customize the CSS styles as needed to match your design requirements.
 
-### Example of Including GSAP
-```html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-```
 
 ---
