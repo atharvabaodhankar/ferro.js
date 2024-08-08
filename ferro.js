@@ -244,7 +244,8 @@ const Ferro = {
   },
   // Usage : FerroMagnet(".ferro-magnet", 1 to 5 Sens)
 
-  mouseFollower: function(sp = 0, size = "15px", blendMode = true, selectors = []) {
+  // Ferro Mouse Follower
+  mouseFollower : function (sp = 0, size = "15px", blendMode = true, selectors = [] , se = 0) {
     const FerroMouseBall = document.createElement("div");
     FerroMouseBall.className = "ferro-mouse-follower-ball";
     document.body.insertBefore(FerroMouseBall, document.body.firstChild);
@@ -257,6 +258,14 @@ const Ferro = {
         3: 0.3,
         4: 0.4,
         5: 0.5,
+    };
+    const ScaleEnchancer = {
+        0: 20,
+        1: 40,
+        2: 60,
+        3: 80,
+        4: 100,
+        5: 120,
     };
 
     const speed = speedMap[sp] || 0.05;
@@ -290,9 +299,10 @@ const Ferro = {
         const elements = document.querySelectorAll(selector);
         elements.forEach(element => {
             element.addEventListener('mouseenter', () => {
-                const elementHeight = element.offsetHeight;
+                const fontSize = parseFloat(window.getComputedStyle(element).fontSize) + ScaleEnchancer[se] || 20;
                 const currentSize = parseFloat(size);
-                const newScale = elementHeight / currentSize;
+                const newScale = fontSize / currentSize;
+          
                 gsap.to(FerroMouseBall, { scale: newScale, duration: 0.3 });
             });
             element.addEventListener('mouseleave', () => {
@@ -301,8 +311,9 @@ const Ferro = {
         });
     });
 }
+
 ,
-  // Usage : Ferro.mouseFollower(0, "15px", true, [".box1", ".box2"]);
+  // Usage : Ferro.mouseFollower(0, "15px", true, [".box1", ".box2"] , 3);
 
   // Ferro Heading Effects
 
@@ -611,6 +622,37 @@ const Ferro = {
   },
 
   // Usage : Ferro.button(".btn" , .5 , "ease");
+
+  // Ferro Dynamic Hover
+  dynamicHover: function (selector, speed = 0) {
+
+    const sensitivityValues = {
+      1: 10,
+      2: 12,
+      3: 14,
+      4: 15,
+      5: 16,
+    };
+    const appliedSensitivity = sensitivityValues[speed] || 8;
+
+    const selects = document.querySelectorAll(selector);
+    selects.forEach((ele) => {
+    
+      window.addEventListener("mousemove", (e) => {
+      let x = e.pageX - innerWidth / 2;
+      let y = e.pageY - innerHeight / 2;
+      gsap.to(ele, {
+        x: x / appliedSensitivity,
+        y: y / appliedSensitivity,
+        ease : "ease",
+        duration: 2
+      });
+    });
+    
+    });
+  },
+
+  // Usage : Ferro.dynamicHover(".box", 3);
 
   // Add more methods as needed
 };

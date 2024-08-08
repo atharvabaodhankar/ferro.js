@@ -12,8 +12,11 @@
 
 // Ferro.cardShow(".box" , 8 , true , "top" , "70%");
 
-// Ferro.mouseFollower(1,"20px" , true , [".h1"]);
+// Ferro.mouseFollower(1,"20px" , true , [".h1" , ".h2"] , 0);
 
 // Ferro.headingEffect(".h1", 7)
 
 // Ferro.button(".btn" , .5 , "ease");
+
+// Ferro.dynamicHover(".box" , 0);
+

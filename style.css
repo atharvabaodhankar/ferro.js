@@ -73,8 +73,8 @@ p {
 }
 
 .box {
-    width: 900px;
-    height: 560px;
+    width: 600px;
+    height: 400px;
     background-color: red;
     margin: 2rem 0;
     overflow: hidden;

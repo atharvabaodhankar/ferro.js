@@ -194,6 +194,40 @@ Ferro.imgShift(element, eff);
 Ferro.imgShift(".box", 20);
 ```
 
+## Ferro Dynamic Hover
+
+The `dynamicHover` function will create a dynamic hover effect where the elements smoothly follow the mouse cursor, enhancing the visual interaction on your webpage.
+
+### Parameters
+
+- **`selector`** (string): A CSS selector to target the elements for the hover effect.
+- **`speed`** (number, optional): Determines the sensitivity of the hover effect. The default value is `0`. Sensitivity levels are as follows:
+  - `1`: Sensitivity level 10
+  - `2`: Sensitivity level 12
+  - `3`: Sensitivity level 14
+  - `4`: Sensitivity level 15
+  - `5`: Sensitivity level 16
+  - `default`: Sensitivity level 8
+
+### Usage
+
+```javascript
+Ferro.dynamicHover(".box", 3);
+```
+
+This will apply the hover effect with sensitivity level 3 to all elements matching the `.box` selector.
+
+### Example
+
+To apply the hover effect to all elements with the class `.box` and set the sensitivity to level 3, you would use:
+
+```javascript
+Ferro.dynamicHover(".box", 3);
+```
+
+
+
+
 ## Text Waves Effect
 
 Creates a wave effect on text with customizable colors for the outline and fill.
@@ -260,7 +294,7 @@ Creates a custom mouse follower element.
 
 #### Usage
 ```javascript
-Ferro.mouseFollower(sp, size, blendMode, selectors);
+Ferro.mouseFollower(sp, size, blendMode, selectors, se);
 ```
 
 #### Parameters
@@ -268,17 +302,21 @@ Ferro.mouseFollower(sp, size, blendMode, selectors);
 - `size` (string, optional): Size of the follower ball (e.g., "15px"). Default is "15px".
 - `blendMode` (boolean, optional): If true, enables mix-blend-mode. Default is true.
 - `selectors` (array, optional): Array of CSS selectors. When the mouse hovers over elements matching these selectors, the follower ball scales to cover the element.
+- `se` (number, optional): Scale enhancer (0 to 5). Adjusts the scaling of the follower ball based on a defined enhancement value. Default is 0.
 
 #### Example
 ```javascript
-Ferro.mouseFollower(1, "20px", true, ['h1', '.hover-scale']);
+Ferro.mouseFollower(1, "20px", true, ['h1', '.hover-elements'], 3);
 ```
 
 This example creates a custom mouse follower with the following settings:
 - Speed: 1
 - Size: 20px
 - Mix-blend-mode enabled
+- Scale enhancer: 3
 - The follower ball will scale to cover any `h1` element or elements with the class `.hover-scale` when hovered.
+
+
 
 ## Additional Notes
 
