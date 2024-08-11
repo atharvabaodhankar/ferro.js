@@ -268,6 +268,47 @@ Ferro.textSplit(selector, scrub, style, st, ed);
 ```javascript
 Ferro.textSplit(".text", 1, 4, "0%", "5%");
 ```
+---
+
+## Frame Effect
+
+The `frame` function adds a customizable frame effect to specified elements. This effect wraps the content inside a frame with defined styles like color, speed, width, and easing.
+
+### Parameters
+
+- **`selector`** (string): A CSS selector to target the elements that will receive the frame effect.
+- **`color`** (string, optional): The color of the frame. The default value is `"#fff"` (white).
+- **`speed`** (string, optional): The duration of the frame animation. The default value is `"4s"`.
+- **`width`** (string, optional): The width of the frame padding. The default value is `"15px"`.
+- **`easing`** (string, optional): The easing function for the animation. The default value is `"ease-in-out"`.
+
+### Usage
+
+```javascript
+Ferro.frame(".box", "#fff", "4s", "15px", "ease-in-out");
+```
+
+This will apply a frame effect to all elements with the class `.box` using the following settings:
+- **Color**: White (`#fff`)
+- **Speed**: 4 seconds (`4s`)
+- **Width**: 15 pixels (`15px`)
+- **Easing**: Ease-in-out (`ease-in-out`)
+
+### Example
+
+To apply a frame effect with custom parameters to all elements with the class `.box`, you would use:
+
+```javascript
+Ferro.frame(".box", "#ff0000", "3s", "20px", "ease");
+```
+
+This example sets:
+- **Color**: Red (`#ff0000`)
+- **Speed**: 3 seconds (`3s`)
+- **Width**: 20 pixels (`20px`)
+- **Easing**: Ease (`ease`)
+
+--- 
 
 ## Magnet Effect
 

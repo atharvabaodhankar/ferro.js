@@ -127,3 +127,39 @@ span{
     transform: translateY(-100%);
 }
 /* Ferro Button End*/
+
+/* Ferro Box Border */
+.ferro-frame-effect{
+    position: relative;
+    overflow: hidden;
+    --ffe-speed : 4s;
+    --ffe-color : #fff;
+    --ffe-easing : ease-in-out;
+    padding: 15px;
+}
+.ferro-frame-effect .ferro-frame-effect-in{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 100;
+}
+.ferro-frame-effect::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 220%;
+    transform: translate(-50% , -50%) rotate(45deg);
+    background-color: var(--ffe-color);
+    animation: ferro-frame-effect var(--ffe-speed) infinite var(--ffe-easing);
+    z-index: 1;
+}
+@keyframes ferro-frame-effect {
+    100%{
+        transform: translate(-50% , -50%) rotate(225deg);
+    }
+}
+
+
+/* Ferro Box Border End*/

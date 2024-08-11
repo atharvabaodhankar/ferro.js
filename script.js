@@ -20,3 +20,4 @@
 
 // Ferro.dynamicHover(".box" , 0);
 
+// Ferro.frame(".box","cyan",  "4s","1rem",  "ease");

@@ -651,8 +651,36 @@ const Ferro = {
     
     });
   },
-
   // Usage : Ferro.dynamicHover(".box", 3);
+
+
+  // Ferro Frame Effect
+  frame : function (
+    selector,
+    color = "#fff",
+    speed = "4s",
+    width = "15px",
+    easing = "ease-in-out",
+  ) {
+    const frames = document.querySelectorAll(selector);
+  
+    frames.forEach((frame) => {
+      frame.classList.add("ferro-frame-effect");
+      frame.style.setProperty("--ffe-speed", speed);
+      frame.style.setProperty("--ffe-color", color);
+      frame.style.setProperty("--ffe-easing", easing);
+      frame.style.padding = width;
+      const wrapper = document.createElement("div");
+      wrapper.classList.add("ferro-frame-effect-in");
+      while (frame.firstChild) {
+        wrapper.appendChild(frame.firstChild);
+      }
+      frame.appendChild(wrapper);
+    });
+  },
+
+  // Usage : Ferro.frame(".box", "#fff", "4s", "15px", "ease-in-out");
+
 
   // Add more methods as needed
 };

@@ -73,11 +73,9 @@ p {
 }
 
 .box {
-    width: 600px;
+    width: 400px;
     height: 400px;
-    background-color: red;
     margin: 2rem 0;
-    overflow: hidden;
 }
 .box img{
     width: 100%;
