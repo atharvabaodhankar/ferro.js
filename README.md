@@ -268,8 +268,6 @@ Ferro.textSplit(selector, scrub, style, st, ed);
 ```javascript
 Ferro.textSplit(".text", 1, 4, "0%", "5%");
 ```
----
-
 ## Frame Effect
 
 The `frame` function adds a customizable frame effect to specified elements. This effect wraps the content inside a frame with defined styles like color, speed, width, and easing.
@@ -308,7 +306,6 @@ This example sets:
 - **Width**: 20 pixels (`20px`)
 - **Easing**: Ease (`ease`)
 
---- 
 
 ## Magnet Effect
 
