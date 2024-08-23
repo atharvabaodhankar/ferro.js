@@ -16,7 +16,7 @@
 
 // Ferro.headingEffect(".h1", 7)
 
-// Ferro.button(".btn" , .5 , "ease");
+Ferro.button(".n-btn" , .5 , "ease");
 
 // Ferro.dynamicHover(".box" , 0);
 

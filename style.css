@@ -77,7 +77,8 @@ p {
     height: 400px;
     margin: 2rem 0;
 }
-.box img{
+
+.box img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -94,11 +95,57 @@ button {
     transition: all 0.5s ease-in-out;
 }
 
-.text{
+.text {
     font-size: 7rem;
 }
-.text span{
+
+.text span {
     display: inline-block;
     margin: 0;
 }
 
+.horz {
+    width: min-content;
+    display: flex;
+    height: 60%;
+}
+.sample{
+    overflow: hidden;
+}
+.content{
+    width: 100vw;
+    height: 100%;
+    background-color: crimson;
+}
+.content:nth-child(even){
+    
+    background-color: coral;
+}
+
+#navbar {
+    width: 100%;
+    position: fixed;
+    height: 90vh;
+    left: 0;
+    top: 0;
+    background-color: #fff;
+    ul{
+        list-style: none;
+    }
+}
+.n-btn{
+    font-size: 5rem;
+}
+#navbar{
+    width: 100%;
+    position: fixed;
+    height: 90vh;
+    left: 0;
+    top: 0;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
