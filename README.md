@@ -1,3 +1,69 @@
+# Ferro.js 🚀
+
+![Version](https://img.shields.io/npm/v/ferro-js)
+![License](https://img.shields.io/npm/l/ferro-js)
+![Downloads](https://img.shields.io/npm/dm/ferro-js)
+
+A professional animation library built on GSAP for creating engaging web interactions.
+
+## Features
+
+- 🎨 10+ Ready-to-use animations
+- 🎯 Easy to implement
+- ⚡ Optimized performance
+- 📱 Mobile-friendly
+- 🛠 Highly customizable
+
+## Installation
+
+```bash
+npm install ferro-js
+# or
+yarn add ferro-js
+```
+
+## Quick Start
+
+```html
+<!-- Include GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<!-- Include Ferro -->
+<script src="path/to/ferro.min.js"></script>
+<link rel="stylesheet" href="path/to/ferro.min.css">
+```
+
+## Usage
+
+```javascript
+// Initialize a card show animation
+Ferro.cardShow('.card', 3);
+
+// Add a magnetic effect
+Ferro.magnet('.button', 3);
+
+// Create a text wave effect
+Ferro.textWaves('.heading', 'Hello World');
+```
+
+[View Full Documentation](https://ferro-js.com/docs)
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## Contributing
+
+We welcome contributions! Please read our [contributing guidelines](CONTRIBUTING.md) first.
+
+## License
+
+MIT © [Your Name]
+
 ---
 # Ferro.js
 

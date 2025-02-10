@@ -4,14 +4,14 @@
     display: grid;
     place-items: center;
 }
-.ferro-text-waves h1{
+.ferro-text-waves__heading {
     position: absolute;
 }
-.ferro-text-waves h1:nth-child(1) {
+.ferro-text-waves__heading--outline {
     color: transparent;
     -webkit-text-stroke: 2px #faf6f6;
 }
-.ferro-text-waves h1:nth-child(2) {
+.ferro-text-waves__heading--animated {
     color: #ffff;
     animation: ferro-text-waves-animation 4s ease-in-out infinite;
 }

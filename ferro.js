@@ -1,4 +1,35 @@
 const Ferro = {
+  // Add version and author info
+  VERSION: '1.0.0',
+  AUTHOR: 'Atharva Baodhankar',
+
+  // Add validation utilities
+  _utils: {
+    validateSelector: function(selector) {
+      if (!selector || typeof selector !== 'string') {
+        throw new Error('Ferro: Invalid selector provided');
+      }
+      return true;
+    },
+    
+    validateNumber: function(num, min, max, paramName) {
+      if (typeof num !== 'number' || num < min || num > max) {
+        throw new Error(`Ferro: ${paramName} must be a number between ${min} and ${max}`);
+      }
+      return true;
+    },
+
+    // Add GSAP dependency check
+    checkDependencies: function() {
+      if (typeof gsap === 'undefined') {
+        throw new Error('Ferro: GSAP is required but not loaded. Please include GSAP library.');
+      }
+      if (typeof ScrollTrigger === 'undefined') {
+        throw new Error('Ferro: GSAP ScrollTrigger plugin is required but not loaded.');
+      }
+    }
+  },
+
   // Ferro Card Show
   cardShow: function (
     selector,
@@ -7,97 +38,106 @@ const Ferro = {
     st = "top",
     ed = "70%"
   ) {
-    const FerroCards = document.querySelectorAll(selector);
-    FerroCards[0].parentNode.style.overflow = "hidden";
+    try {
+      this._utils.validateSelector(selector);
+      this._utils.validateNumber(style, 0, 8, 'style');
+      this._utils.checkDependencies();
 
-    let animationProps;
-    switch (style) {
-      case 1:
-        animationProps = {
-          opacity: 0,
-          rotation: 60,
-          y: 50,
-          stagger: 0.1,
-        };
-        break;
-      case 2:
-        animationProps = {
-          opacity: 0,
-          scale: 0.5,
-          y: 50,
-          stagger: 0.1,
-        };
-        break;
-      case 3:
-        animationProps = {
-          opacity: 0,
-          x: 50,
-          y: 50,
-          stagger: 0.1,
-        };
-        break;
-      case 4:
-        animationProps = {
-          opacity: 0,
-          y: -50,
-          stagger: 0.1,
-          duration: 1,
-        };
-        break;
-      case 5:
-        animationProps = {
-          opacity: 0,
-          x: -50,
-          stagger: 0.1,
-          duration: 1,
-        };
-        break;
-      case 6:
-        animationProps = {
-          opacity: 0,
-          skewX: 10,
-          stagger: 0.1,
-          duration: 1,
-        };
-        break;
-      case 7:
-        animationProps = {
-          opacity: 0,
-          skewY: 10,
-          stagger: 0.1,
-          duration: 1,
-        };
-        break;
-      case 8:
-        animationProps = {
-          opacity: 0,
-          skewY: 10,
-          x: 200,
-          stagger: 0.1,
-          duration: 1,
-        };
-        break;
-      default:
-        animationProps = {
-          opacity: 0,
-          y: 50,
-          stagger: 0.1,
-        };
+      const FerroCards = document.querySelectorAll(selector);
+      FerroCards[0].parentNode.style.overflow = "hidden";
+
+      let animationProps;
+      switch (style) {
+        case 1:
+          animationProps = {
+            opacity: 0,
+            rotation: 60,
+            y: 50,
+            stagger: 0.1,
+          };
+          break;
+        case 2:
+          animationProps = {
+            opacity: 0,
+            scale: 0.5,
+            y: 50,
+            stagger: 0.1,
+          };
+          break;
+        case 3:
+          animationProps = {
+            opacity: 0,
+            x: 50,
+            y: 50,
+            stagger: 0.1,
+          };
+          break;
+        case 4:
+          animationProps = {
+            opacity: 0,
+            y: -50,
+            stagger: 0.1,
+            duration: 1,
+          };
+          break;
+        case 5:
+          animationProps = {
+            opacity: 0,
+            x: -50,
+            stagger: 0.1,
+            duration: 1,
+          };
+          break;
+        case 6:
+          animationProps = {
+            opacity: 0,
+            skewX: 10,
+            stagger: 0.1,
+            duration: 1,
+          };
+          break;
+        case 7:
+          animationProps = {
+            opacity: 0,
+            skewY: 10,
+            stagger: 0.1,
+            duration: 1,
+          };
+          break;
+        case 8:
+          animationProps = {
+            opacity: 0,
+            skewY: 10,
+            x: 200,
+            stagger: 0.1,
+            duration: 1,
+          };
+          break;
+        default:
+          animationProps = {
+            opacity: 0,
+            y: 50,
+            stagger: 0.1,
+          };
+      }
+
+      gsap.from(FerroCards, {
+        ...animationProps,
+        scrollTrigger: srb
+          ? {
+              trigger: FerroCards[0].parentNode,
+              scrub: 3,
+              start: `${st} 70%`,
+              end: `${ed} 70%`,
+            }
+          : {
+              trigger: FerroCards,
+            },
+      });
+    } catch (error) {
+      console.error(error);
+      return false;
     }
-
-    gsap.from(FerroCards, {
-      ...animationProps,
-      scrollTrigger: srb
-        ? {
-            trigger: FerroCards[0].parentNode,
-            scrub: 3,
-            start: `${st} 70%`,
-            end: `${ed} 70%`,
-          }
-        : {
-            trigger: FerroCards,
-          },
-    });
   },
   // Usage : FerroCardShow('.card', 3);
 
@@ -208,39 +248,54 @@ const Ferro = {
   // Usage : FerroTextSplit(".text", 1, 4, "0%", "5%" );
   // Ferro Magnet
 
-  magnet: function (selector, sensitivity) {
-    const FerroMagnets = document.querySelectorAll(selector);
+  /**
+   * Creates a magnetic effect on elements
+   * @param {string} selector - CSS selector for target elements
+   * @param {number} sensitivity - Sensitivity level (1-5)
+   * @returns {boolean} - Success status
+   */
+  magnet: function (selector, sensitivity = 1) {
+    try {
+      this._utils.validateSelector(selector);
+      this._utils.validateNumber(sensitivity, 1, 5, 'sensitivity');
 
-    const sensitivityValues = {
-      1: 20,
-      2: 18,
-      3: 15,
-      4: 12,
-      5: 10,
-    };
+      const FerroMagnets = document.querySelectorAll(selector);
 
-    FerroMagnets.forEach((FerroMagnet) => {
-      const appliedSensitivity = sensitivityValues[sensitivity] || 20;
+      const sensitivityValues = {
+        1: 20,
+        2: 18,
+        3: 15,
+        4: 12,
+        5: 10,
+      };
 
-      FerroMagnet.addEventListener("mousemove", (e) => {
-        const centerX = innerWidth / 2;
-        const centerY = innerHeight / 2;
-        const offsetX = e.pageX - centerX;
-        const offsetY = e.pageY - centerY;
+      FerroMagnets.forEach((FerroMagnet) => {
+        const appliedSensitivity = sensitivityValues[sensitivity] || 20;
 
-        gsap.to(FerroMagnet, {
-          x: offsetX / appliedSensitivity,
-          y: offsetY / appliedSensitivity,
+        FerroMagnet.addEventListener("mousemove", (e) => {
+          const centerX = innerWidth / 2;
+          const centerY = innerHeight / 2;
+          const offsetX = e.pageX - centerX;
+          const offsetY = e.pageY - centerY;
+
+          gsap.to(FerroMagnet, {
+            x: offsetX / appliedSensitivity,
+            y: offsetY / appliedSensitivity,
+          });
+        });
+
+        FerroMagnet.addEventListener("mouseleave", (e) => {
+          gsap.to(FerroMagnet, {
+            x: 0,
+            y: 0,
+          });
         });
       });
-
-      FerroMagnet.addEventListener("mouseleave", (e) => {
-        gsap.to(FerroMagnet, {
-          x: 0,
-          y: 0,
-        });
-      });
-    });
+      return true;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
   },
   // Usage : FerroMagnet(".ferro-magnet", 1 to 5 Sens)
 
@@ -683,3 +738,16 @@ const Ferro = {
 
   // Add more methods as needed
 };
+
+// Add UMD wrapper for better module support
+(function (root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        define([], factory);
+    } else if (typeof module === 'object' && module.exports) {
+        module.exports = factory();
+    } else {
+        root.Ferro = factory();
+    }
+}(typeof self !== 'undefined' ? self : this, function () {
+    return Ferro;
+}));
