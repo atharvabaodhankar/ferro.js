@@ -1,12 +1,17 @@
 {
   "name": "ferro-js",
   "version": "1.0.0",
-  "description": "A professional animation library built on GSAP for creating engaging web interactions",
+  "description": "A professional animation library built on GSAP",
   "main": "dist/ferro.min.js",
+  "files": [
+    "dist",
+    "ferro.js",
+    "ferro.css"
+  ],
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack --mode development --watch",
-    "test": "jest"
+    "prepare": "npm run build"
   },
   "keywords": [
     "animation",
@@ -15,8 +20,16 @@
     "ui",
     "effects"
   ],
-  "author": "Your Name",
+  "author": "Atharva Baodhankar",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atharvabaodhankar/ferro.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/atharvabaodhankar/ferro.js/issues"
+  },
+  "homepage": "https://github.com/atharvabaodhankar/ferro.js#readme",
   "dependencies": {
     "gsap": "^3.12.5"
   },
@@ -30,4 +43,4 @@
   "peerDependencies": {
     "gsap": ">=3.0.0"
   }
-} 
+}
