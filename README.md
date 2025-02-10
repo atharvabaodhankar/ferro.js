@@ -174,7 +174,7 @@ We welcome contributions! Please read our [contributing guidelines](CONTRIBUTING
 
 ## License
 
-MIT © [Your Name]
+MIT © Atharva Baodhankar 
 
 ---
 # Ferro.js
