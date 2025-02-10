@@ -1,6 +1,6 @@
 {
   "name": "ferro-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A professional animation library built on GSAP",
   "main": "dist/ferro.min.js",
   "files": [
