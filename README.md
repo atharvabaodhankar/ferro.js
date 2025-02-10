@@ -16,35 +16,147 @@ A professional animation library built on GSAP for creating engaging web interac
 
 ## Installation
 
+### Using NPM
 ```bash
-npm install ferro-js
-# or
-yarn add ferro-js
+npm install ferro-js gsap
 ```
 
-## Quick Start
+### Using Yarn
+```bash
+yarn add ferro-js gsap
+```
 
+## Usage
+
+### Method 1: ES6 Modules (Recommended)
+```javascript
+import Ferro from 'ferro-js';
+import 'ferro-js/dist/ferro.min.css';
+
+// Initialize animations
+Ferro.cardShow('.card', 3);
+Ferro.magnet('.button', 3);
+```
+
+### Method 2: CommonJS
+```javascript
+const Ferro = require('ferro-js');
+require('ferro-js/dist/ferro.min.css');
+
+// Initialize animations
+Ferro.cardShow('.card', 3);
+```
+
+### Method 3: CDN
 ```html
 <!-- Include GSAP -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
 <!-- Include Ferro -->
-<script src="path/to/ferro.min.js"></script>
-<link rel="stylesheet" href="path/to/ferro.min.css">
+<script src="https://unpkg.com/ferro-js@latest/dist/ferro.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/ferro-js@latest/dist/ferro.min.css">
 ```
 
-## Usage
+## Framework Integration
 
+### React
+```jsx
+import { useEffect } from 'react';
+import Ferro from 'ferro-js';
+import 'ferro-js/dist/ferro.min.css';
+
+function App() {
+  useEffect(() => {
+    // Initialize animations after component mount
+    Ferro.cardShow('.card', 3);
+    Ferro.magnet('.button', 3);
+  }, []);
+
+  return (
+    <div>
+      <div className="card">Card content</div>
+      <button className="button">Magnetic Button</button>
+    </div>
+  );
+}
+```
+
+### Vue
+```vue
+<template>
+  <div>
+    <div class="card">Card content</div>
+    <button class="button">Magnetic Button</button>
+  </div>
+</template>
+
+<script>
+import Ferro from 'ferro-js';
+import 'ferro-js/dist/ferro.min.css';
+
+export default {
+  mounted() {
+    // Initialize animations after component mount
+    Ferro.cardShow('.card', 3);
+    Ferro.magnet('.button', 3);
+  }
+}
+</script>
+```
+
+### Next.js
 ```javascript
-// Initialize a card show animation
+// pages/_app.js
+import 'ferro-js/dist/ferro.min.css';
+
+// components/AnimatedComponent.js
+import { useEffect } from 'react';
+import dynamic from 'next/dynamic';
+
+// Import Ferro dynamically to avoid SSR issues
+const Ferro = dynamic(() => import('ferro-js'), { ssr: false });
+
+export default function AnimatedComponent() {
+  useEffect(() => {
+    // Initialize animations after component mount
+    Ferro.cardShow('.card', 3);
+    Ferro.magnet('.button', 3);
+  }, []);
+
+  return (
+    // Your component JSX
+  );
+}
+```
+
+## Examples
+
+### Card Show Animation
+```javascript
+// Basic usage
 Ferro.cardShow('.card', 3);
 
-// Add a magnetic effect
+// With scroll trigger
+Ferro.cardShow('.card', 3, true, 'top', '70%');
+```
+
+### Magnetic Effect
+```javascript
+// Basic usage
 Ferro.magnet('.button', 3);
 
-// Create a text wave effect
+// Multiple elements
+Ferro.magnet('.magnetic-elements', 4);
+```
+
+### Text Wave Effect
+```javascript
+// Basic usage
 Ferro.textWaves('.heading', 'Hello World');
+
+// With custom colors
+Ferro.textWaves('.heading', 'Hello World', '#000', '#fff');
 ```
 
 [View Full Documentation](https://ferro-js.com/docs)
