@@ -198,6 +198,9 @@ const Ferro = {
     FerroText1.innerText = txt;
     FerroText2.innerText = txt;
 
+    FerroText1.className = "ferro-text-waves__heading ferro-text-waves__heading--outline";
+    FerroText2.className = "ferro-text-waves__heading ferro-text-waves__heading--animated";
+
     FerroText1.style["-webkit-text-stroke"] = `2px ${color1}`;
     FerroText2.style.color = color2;
 

@@ -4,4 +4,5 @@ dist/
 *.log 
 script.js
 index.html
+index.css
 
