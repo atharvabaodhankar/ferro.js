@@ -130,24 +130,44 @@ span{
   left: 0; right: 0;
   width: 100%;
   text-align: center;
-  transition: transform 0.3s, top 0.3s;
+  transition: transform 0.3s, top 0.3s, opacity 0.3s;
   font-size: inherit;
   line-height: 1.2;
   pointer-events: none;
 }
-.ferro-button span:nth-child(1) {
+/* Variation 1: Vertical Slide */
+.ferro-button-1 span:nth-child(1) {
   top: 50%;
   transform: translateY(-50%);
+  opacity: 1;
 }
-.ferro-button span:nth-child(2) {
+.ferro-button-1 span:nth-child(2) {
   top: 150%;
   transform: translateY(-50%);
+  opacity: 1;
 }
-.ferro-button:hover span:nth-child(1) {
+.ferro-button-1:hover span:nth-child(1) {
   top: -50%;
 }
-.ferro-button:hover span:nth-child(2) {
+.ferro-button-1:hover span:nth-child(2) {
   top: 50%;
+}
+/* Variation 2: Fade/Crossfade */
+.ferro-button-2 span:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 1;
+}
+.ferro-button-2 span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+}
+.ferro-button-2:hover span:nth-child(1) {
+  opacity: 0;
+}
+.ferro-button-2:hover span:nth-child(2) {
+  opacity: 1;
 }
 /* Ferro Button End*/
 

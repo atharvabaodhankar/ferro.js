@@ -159,6 +159,39 @@ Ferro.textWaves('.heading', 'Hello World');
 Ferro.textWaves('.heading', 'Hello World', '#000', '#fff');
 ```
 
+### Button Animation Variations
+
+The `Ferro.button` function now supports animation variations via the `variation` parameter:
+- **1**: Vertical Slide (default)
+- **2**: Fade / Crossfade
+
+#### Usage
+```javascript
+// Vertical Slide (default)
+Ferro.button('.btn-slide', 0.5, 'ease', 1);
+
+// Fade / Crossfade
+Ferro.button('.btn-fade', 0.5, 'ease', 2);
+```
+
+#### Example HTML
+```html
+<button class="btn btn-slide">Ferro Button</button>
+<button class="btn btn-fade">Ferro Button</button>
+```
+
+#### Example Initialization
+```javascript
+Ferro.button('.btn-slide', 0.5, 'ease', 1); // Vertical slide
+Ferro.button('.btn-fade', 0.5, 'ease', 2);  // Fade/crossfade
+```
+
+#### Parameters
+- `selector` (string): CSS selector for the button elements.
+- `time` (number, optional): Animation duration in seconds. Default is 0.5.
+- `easing` (string, optional): Easing function. Default is 'cubic-bezier(0.68, -0.55, 0.265, 1.55)'.
+- `variation` (number, optional): Animation style. 1 = vertical slide (default), 2 = fade/crossfade.
+
 [View Full Documentation](https://ferro-js.com/docs)
 
 ## Browser Support

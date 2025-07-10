@@ -659,7 +659,7 @@ const Ferro = {
   // Usage : Ferro.headingEffect(".h1", 7)
 
   // Ferro Button
-  button: function (selector, time = 0.5 , easing = "cubic-bezier(0.68, -0.55, 0.265, 1.55)") {
+  button: function (selector, time = 0.5 , easing = "cubic-bezier(0.68, -0.55, 0.265, 1.55)", variation = 1) {
     let buttons = document.querySelectorAll(selector);
 
     buttons.forEach((button) => {
@@ -667,7 +667,7 @@ const Ferro = {
       button.style.transition = `all ${time}s ${easing}`;
       let btn1 = document.createElement("span");
       let btn2 = document.createElement("span");
-      button.classList.add("ferro-button");
+      button.classList.add("ferro-button", `ferro-button-${variation}`);
       btn1.innerText = btnTxt;
       btn2.innerText = btnTxt;
 
