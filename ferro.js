@@ -667,7 +667,6 @@ const Ferro = {
       button.style.transition = `all ${time}s ${easing}`;
       let btn1 = document.createElement("span");
       let btn2 = document.createElement("span");
-      button.style.height = window.getComputedStyle(button).fontSize;
       button.classList.add("ferro-button");
       btn1.innerText = btnTxt;
       btn2.innerText = btnTxt;

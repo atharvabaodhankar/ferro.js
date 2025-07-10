@@ -108,23 +108,46 @@ span{
 /* Ferro Mouse Follower End */
 
 /* Ferro Button */
-.ferro-button{
-    height: min-content;
-    overflow: hidden;
-    transition: all .3s ease;
-    span{
-        display: block;
-        color: inherit;
-        transition: inherit;
-        font-size: inherit;
-    }
+.ferro-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ff5a36;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 18px 40px;
+  overflow: hidden;
+  transition: all .3s ease;
+  min-width: 220px;
+  min-height: 56px;
 }
-.ferro-button:hover span:nth-child(1){
-    transform: translateY(-100%);
-
+.ferro-button span {
+  position: absolute;
+  left: 0; right: 0;
+  width: 100%;
+  text-align: center;
+  transition: transform 0.3s, top 0.3s;
+  font-size: inherit;
+  line-height: 1.2;
+  pointer-events: none;
 }
-.ferro-button:hover span:nth-child(2){
-    transform: translateY(-100%);
+.ferro-button span:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.ferro-button span:nth-child(2) {
+  top: 150%;
+  transform: translateY(-50%);
+}
+.ferro-button:hover span:nth-child(1) {
+  top: -50%;
+}
+.ferro-button:hover span:nth-child(2) {
+  top: 50%;
 }
 /* Ferro Button End*/
 
