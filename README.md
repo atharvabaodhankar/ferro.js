@@ -286,6 +286,56 @@ You can now use the various effects provided by `Ferro.js` by calling the respec
 ## Ferro Functions
 
 
+## Mouse Follower Effect
+
+Creates a smooth mouse follower effect that tracks the cursor with customizable speed, size, and interactive scaling on hover.
+
+#### Usage
+```javascript
+Ferro.mouseFollower(speed, size, blendMode, selectors, scaleEnhancer);
+```
+
+#### Parameters
+- `speed` (number, optional): Speed of the mouse follower (0-5). Default is 0.
+  - 0: Slowest (0.08)
+  - 1: Slow (0.1)
+  - 2: Medium (0.2)
+  - 3: Fast (0.3)
+  - 4: Faster (0.4)
+  - 5: Fastest (0.5)
+- `size` (string, optional): Size of the mouse follower. Default is "15px".
+- `blendMode` (boolean, optional): Whether to use blend mode effect. Default is true.
+- `selectors` (array, optional): Array of CSS selectors for elements that trigger scaling on hover.
+- `scaleEnhancer` (number, optional): Scale enhancement level (0-5). Default is 0.
+  - 0: +20px
+  - 1: +40px
+  - 2: +60px
+  - 3: +80px
+  - 4: +100px
+  - 5: +120px
+
+#### Example HTML
+```html
+<div class="hover-element">Hover me to scale the mouse follower!</div>
+<button class="btn">Another hover element</button>
+```
+
+#### Example Initialization
+```javascript
+// Basic usage
+Ferro.mouseFollower(0, "15px", true, [], 0);
+
+// With interactive elements
+Ferro.mouseFollower(2, "20px", true, [".hover-element", ".btn"], 3);
+```
+
+#### Features
+- Smooth cursor tracking with customizable speed
+- Blend mode effect for better visual integration
+- Interactive scaling when hovering over specified elements
+- Customizable size and scale enhancement levels
+
+
 ## Heading Effect
 
 The `headingEffect` function applies animated effects to headings on your webpage using GSAP (GreenSock Animation Platform) and ScrollTrigger. This function divides the text content of the selected headings into individual characters and animates them based on the specified style.
