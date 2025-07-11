@@ -128,15 +128,8 @@ export default function AnimatedComponent() {
     // Your component JSX
   );
 }
-```
+``` 
 
-# Ferro.js
-
-![Ferro.js Logo](./img.jpg)
-
-Ferro.js is a JavaScript library for adding interactive animations and effects to web elements using GSAP (GreenSock Animation Platform). This library includes various functions to create engaging animations and effects such as card reveals, text animations, parallax images, and more. Below are the detailed instructions and options for using each function.
-
----
 
 ## Getting Started
 
