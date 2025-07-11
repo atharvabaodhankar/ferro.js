@@ -130,110 +130,6 @@ export default function AnimatedComponent() {
 }
 ```
 
-## Examples
-
-### Card Show Animation
-```javascript
-// Basic usage
-Ferro.cardShow('.card', 3);
-
-// With scroll trigger
-Ferro.cardShow('.card', 3, true, 'top', '70%');
-```
-
-### Magnetic Effect
-```javascript
-// Basic usage
-Ferro.magnet('.button', 3);
-
-// Multiple elements
-Ferro.magnet('.magnetic-elements', 4);
-```
-
-### Text Wave Effect
-```javascript
-// Basic usage
-Ferro.textWaves('.heading', 'Hello World');
-
-// With custom colors
-Ferro.textWaves('.heading', 'Hello World', '#000', '#fff');
-```
-
-### Button Animation Variations
-
-The `Ferro.button` function now supports animation variations via the `variation` parameter:
-- **1**: Vertical Slide (default)
-- **2**: Fade & Tilt
-- **3**: Gentle Rotate Slide
-- **4**: Skew Slide
-- **5**: Scale Pop
-- **6**: 3D Flip
-
-#### Usage
-```javascript
-// Vertical Slide (default)
-Ferro.button('.btn-slide', 0.5, 'ease', 1);
-
-// Fade & Tilt
-Ferro.button('.btn-fade', 0.5, 'ease', 2);
-
-// Gentle Rotate Slide
-Ferro.button('.btn-circular', 0.5, 'ease', 3);
-
-// Skew Slide
-Ferro.button('.btn-skew', 0.5, 'ease', 4);
-
-// Scale Pop
-Ferro.button('.btn-scale', 0.5, 'ease', 5);
-
-// 3D Flip
-Ferro.button('.btn-flip', 0.5, 'ease', 6);
-```
-
-#### Example HTML
-```html
-<button class="btn btn-slide">Ferro Button</button>
-<button class="btn btn-fade">Ferro Button</button>
-<button class="btn btn-circular">Ferro Button</button>
-<button class="btn btn-skew">Ferro Button</button>
-<button class="btn btn-scale">Ferro Button</button>
-<button class="btn btn-flip">Ferro Button</button>
-```
-
-#### Example Initialization
-```javascript
-Ferro.button('.btn-slide', 0.5, 'ease', 1); // Vertical Slide
-Ferro.button('.btn-fade', 0.5, 'ease', 2);  // Fade & Tilt
-Ferro.button('.btn-circular', 0.5, 'ease', 3); // Gentle Rotate Slide
-Ferro.button('.btn-skew', 0.5, 'ease', 4); // Skew Slide
-Ferro.button('.btn-scale', 0.5, 'ease', 5); // Scale Pop
-Ferro.button('.btn-flip', 0.5, 'ease', 6); // 3D Flip
-```
-
-#### Parameters
-- `selector` (string): CSS selector for the button elements.
-- `time` (number, optional): Animation duration in seconds. Default is 0.5.
-- `easing` (string, optional): Easing function. Default is 'cubic-bezier(0.68, -0.55, 0.265, 1.55)'.
-- `variation` (number, optional): Animation style. 1 = Vertical Slide (default), 2 = Fade & Tilt, 3 = Gentle Rotate Slide, 4 = Skew Slide, 5 = Scale Pop, 6 = 3D Flip.
-
-[View Full Documentation](https://ferro-js.com/docs)
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## Contributing
-
-We welcome contributions! Please read our [contributing guidelines](CONTRIBUTING.md) first.
-
-## License
-
-MIT © Atharva Baodhankar 
-
----
 # Ferro.js
 
 ![Ferro.js Logo](./img.jpg)
@@ -313,6 +209,7 @@ Ferro.mouseFollower(speed, size, blendMode, selectors, scaleEnhancer);
   - 3: +80px
   - 4: +100px
   - 5: +120px
+
 
 #### Example HTML
 ```html
@@ -457,6 +354,16 @@ Ferro.elasticImg(element, style);
 - `style` (number, optional): Style of the animation (0 for height, 1 for width, 2 for both). Default is 0.
 
 #### Example
+
+
+
+```html
+<div class="box">
+  <img src="img.png" alt="Elastic Demo" style="width: 100%; display: block;">
+</div>
+```
+
+
 ```javascript
 Ferro.elasticImg(".box", 2);
 ```
@@ -474,7 +381,7 @@ Ferro.parallaxImg('.parallax-container', 3);
 #### Example HTML
 ```html
 <div class="parallax-img-demo parallax-container">
-  <img src="https://www.polystudi.com/hero-bg-neon.png" alt="Parallax Demo">
+  <img src="img.png" alt="Parallax Demo">
 </div>
 ```
 
@@ -527,6 +434,11 @@ Ferro.textWaves(selector, txt, color1, color2);
 - `color2` (string, optional): Color for the text fill. Default is the same as `color1`.
 
 #### Example
+
+```html
+<div class="box1"></div>
+```
+#### Example Initialization
 ```javascript
 Ferro.textWaves(".box1", "Ferro.js", "#000", "#fff");
 ```
@@ -577,6 +489,17 @@ The `frame` function adds a customizable frame effect to specified elements. Thi
 
 ### Usage
 
+#### Example in HTML
+
+```html
+<div class="box">
+  <h2>Framed Content</h2>
+  <p>This box will have a Ferro frame effect.</p>
+</div>
+```
+
+#### Example Initialization
+
 ```javascript
 Ferro.frame(".box", "#fff", "4s", "15px", "ease-in-out");
 ```
@@ -594,3 +517,133 @@ To apply a frame effect with custom parameters to all elements with the class `.
 ```javascript
 Ferro.frame(".box", "#ff0000", "3s", "20px", "ease");
 ```
+
+---
+
+## 🚀 Quick Start Examples
+
+### Basic Setup
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferro.js Demo</title>
+    
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Ferro.js -->
+    <script src="https://cdn.jsdelivr.net/gh/atharvabaodhankar/ferro.js@master/ferro.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/atharvabaodhankar/ferro.js@master/ferro.css">
+</head>
+<body>
+    <!-- Your content here -->
+    <div class="card">Animated Card</div>
+    <button class="btn">Magnetic Button</button>
+    <h1 class="heading">Animated Heading</h1>
+    
+    <script>
+        // Initialize animations
+        Ferro.cardShow('.card', 3);
+        Ferro.magnet('.btn', 3);
+        Ferro.headingEffect('.heading', 7);
+        Ferro.mouseFollower(2, "20px", true, [".card", ".btn"], 3);
+    </script>
+</body>
+</html>
+```
+
+---
+
+## 📚 Additional Resources
+
+### 🎯 Performance Tips
+- Use `will-change` CSS property for better performance on animated elements
+- Limit the number of simultaneous animations on mobile devices
+- Use `transform` and `opacity` for smooth animations
+- Consider using `requestAnimationFrame` for custom animations
+
+### 🎨 Customization
+- All effects can be customized through CSS variables
+- GSAP's `ease` functions can be modified for different animation feels
+- Combine multiple effects for unique interactions
+- Use ScrollTrigger markers for debugging scroll animations
+
+### 🔧 Troubleshooting
+- Ensure GSAP and ScrollTrigger are loaded before Ferro.js
+- Check browser console for any JavaScript errors
+- Verify CSS selectors match your HTML elements
+- Test on different devices for responsive behavior
+
+### 📱 Mobile Considerations
+- Some effects may be disabled on touch devices for better UX
+- Consider reducing animation complexity on mobile
+- Test scroll-triggered animations on mobile browsers
+- Use `prefers-reduced-motion` media query for accessibility
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Here's how you can help:
+
+### 🐛 Reporting Bugs
+- Use the [GitHub Issues](https://github.com/atharvabaodhankar/ferro.js/issues) page
+- Include browser version, OS, and steps to reproduce
+- Provide a minimal code example if possible
+
+### 💡 Suggesting Features
+- Open a feature request issue
+- Describe the use case and expected behavior
+- Consider if it fits the library's scope
+
+### 🔧 Pull Requests
+- Fork the repository
+- Create a feature branch
+- Follow the existing code style
+- Add tests if applicable
+- Update documentation
+
+
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+### 📜 License Summary
+- ✅ Commercial use
+- ✅ Modification
+- ✅ Distribution
+- ✅ Private use
+- ❌ No liability
+- ❌ No warranty
+
+---
+
+## 🙏 Acknowledgments
+
+- **GSAP Team** - For the amazing animation platform
+- **GreenSock** - For ScrollTrigger and other plugins
+- **Open Source Community** - For inspiration and feedback
+- **Contributors** - Everyone who has helped improve Ferro.js
+
+---
+
+
+
+
+
+<div align="center">
+
+**Made with ❤️ by [Atharva Baodhankar](https://github.com/atharvabaodhankar)**
+
+[![Website](https://img.shields.io/badge/Website-ferro--js.com-blue?style=flat-square)](https://ferro-js.com)
+[![Twitter](https://img.shields.io/badge/Twitter-@ferrojs-blue?style=flat-square)](https://twitter.com/ferrojs)
+[![Discord](https://img.shields.io/badge/Discord-Join%20Community-blue?style=flat-square)](https://discord.gg/ferrojs)
+
+**Ferro.js - Professional animations made simple**
+
+</div>
