@@ -163,19 +163,31 @@ Ferro.textWaves('.heading', 'Hello World', '#000', '#fff');
 
 The `Ferro.button` function now supports animation variations via the `variation` parameter:
 - **1**: Vertical Slide (default)
-- **2**: Fade / Crossfade
-- **3**: Circular Slide (rotate + slide)
+- **2**: Fade & Tilt
+- **3**: Gentle Rotate Slide
+- **4**: Skew Slide
+- **5**: Scale Pop
+- **6**: 3D Flip
 
 #### Usage
 ```javascript
 // Vertical Slide (default)
 Ferro.button('.btn-slide', 0.5, 'ease', 1);
 
-// Fade / Crossfade
+// Fade & Tilt
 Ferro.button('.btn-fade', 0.5, 'ease', 2);
 
-// Circular Slide
+// Gentle Rotate Slide
 Ferro.button('.btn-circular', 0.5, 'ease', 3);
+
+// Skew Slide
+Ferro.button('.btn-skew', 0.5, 'ease', 4);
+
+// Scale Pop
+Ferro.button('.btn-scale', 0.5, 'ease', 5);
+
+// 3D Flip
+Ferro.button('.btn-flip', 0.5, 'ease', 6);
 ```
 
 #### Example HTML
@@ -183,20 +195,26 @@ Ferro.button('.btn-circular', 0.5, 'ease', 3);
 <button class="btn btn-slide">Ferro Button</button>
 <button class="btn btn-fade">Ferro Button</button>
 <button class="btn btn-circular">Ferro Button</button>
+<button class="btn btn-skew">Ferro Button</button>
+<button class="btn btn-scale">Ferro Button</button>
+<button class="btn btn-flip">Ferro Button</button>
 ```
 
 #### Example Initialization
 ```javascript
-Ferro.button('.btn-slide', 0.5, 'ease', 1); // Vertical slide
-Ferro.button('.btn-fade', 0.5, 'ease', 2);  // Fade/crossfade
-Ferro.button('.btn-circular', 0.5, 'ease', 3); // Circular slide
+Ferro.button('.btn-slide', 0.5, 'ease', 1); // Vertical Slide
+Ferro.button('.btn-fade', 0.5, 'ease', 2);  // Fade & Tilt
+Ferro.button('.btn-circular', 0.5, 'ease', 3); // Gentle Rotate Slide
+Ferro.button('.btn-skew', 0.5, 'ease', 4); // Skew Slide
+Ferro.button('.btn-scale', 0.5, 'ease', 5); // Scale Pop
+Ferro.button('.btn-flip', 0.5, 'ease', 6); // 3D Flip
 ```
 
 #### Parameters
 - `selector` (string): CSS selector for the button elements.
 - `time` (number, optional): Animation duration in seconds. Default is 0.5.
 - `easing` (string, optional): Easing function. Default is 'cubic-bezier(0.68, -0.55, 0.265, 1.55)'.
-- `variation` (number, optional): Animation style. 1 = vertical slide (default), 2 = fade/crossfade, 3 = circular slide.
+- `variation` (number, optional): Animation style. 1 = Vertical Slide (default), 2 = Fade & Tilt, 3 = Gentle Rotate Slide, 4 = Skew Slide, 5 = Scale Pop, 6 = 3D Flip.
 
 [View Full Documentation](https://ferro-js.com/docs)
 

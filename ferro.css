@@ -176,23 +176,103 @@ span{
 .ferro-button-3 span:nth-child(1) {
   top: 50%;
   left: 0; right: 0;
-  transform: translateY(-50%) rotate(0deg);
+  transform: translateY(-50%) rotate(0deg) scale(1);
   opacity: 1;
 }
 .ferro-button-3 span:nth-child(2) {
   top: 150%;
   left: 0; right: 0;
-  transform: translateY(-50%) rotate(-90deg);
-  opacity: 1;
+  transform: translateY(-50%) rotate(-20deg) scale(0.7);
+  opacity: 0.7;
 }
 .ferro-button-3:hover span:nth-child(1) {
   top: -50%;
-  transform: translateY(-50%) rotate(90deg);
-  opacity: 0.7;
+  transform: translateY(-50%) rotate(20deg) scale(0.7);
+  opacity: 0.3;
 }
 .ferro-button-3:hover span:nth-child(2) {
   top: 50%;
-  transform: translateY(-50%) rotate(0deg);
+  transform: translateY(-50%) rotate(0deg) scale(1);
+  opacity: 1;
+}
+
+/* Variation 4: Skew Slide */
+.ferro-button-4 span:nth-child(1) {
+  top: 50%;
+  left: 0; right: 0;
+  transform: translateY(-50%) skewX(0deg);
+  opacity: 1;
+}
+.ferro-button-4 span:nth-child(2) {
+  top: 150%;
+  left: 0; right: 0;
+  transform: translateY(-50%) skewX(-30deg);
+  opacity: 0.7;
+}
+.ferro-button-4:hover span:nth-child(1) {
+  top: -50%;
+  transform: translateY(-50%) skewX(30deg);
+  opacity: 0.3;
+}
+.ferro-button-4:hover span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%) skewX(0deg);
+  opacity: 1;
+}
+
+/* Variation 5: Scale Pop */
+.ferro-button-5 span:nth-child(1) {
+  top: 50%;
+  left: 0; right: 0;
+  transform: translateY(-50%) scale(1);
+  opacity: 1;
+  z-index: 2;
+}
+.ferro-button-5 span:nth-child(2) {
+  top: 50%;
+  left: 0; right: 0;
+  transform: translateY(-50%) scale(0.2);
+  opacity: 0;
+  z-index: 1;
+}
+.ferro-button-5:hover span:nth-child(1) {
+  transform: translateY(-50%) scale(0.2);
+  opacity: 0;
+}
+.ferro-button-5:hover span:nth-child(2) {
+  transform: translateY(-50%) scale(1);
+  opacity: 1;
+}
+
+/* Variation 6: Flip (3D) */
+.ferro-button-6 {
+  perspective: 400px;
+
+}
+.ferro-button-6 span {
+  backface-visibility: hidden;
+  transition: 0.5s all ease !important;
+}
+.ferro-button-6 span:nth-child(1) {
+  top: 50%;
+  left: 0; right: 0;
+  transform: translateY(-50%) rotateY(0deg);
+  opacity: 1;
+  z-index: 2;
+}
+.ferro-button-6 span:nth-child(2) {
+  top: 50%;
+  left: 0; right: 0;
+  transform: translateY(-50%) rotateY(-180deg);
+  opacity: 0;
+  z-index: 1;
+}
+.ferro-button-6:hover span:nth-child(1) {
+  transform: translateY(-50%) rotateY(180deg);
+  opacity: 0;
+}
+.ferro-button-6:hover span:nth-child(2) {
+  transform: translateY(-50%) rotateY(0deg);
   opacity: 1;
 }
 /* Ferro Button End*/
