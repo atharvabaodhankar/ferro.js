@@ -413,21 +413,29 @@ Ferro.elasticImg(".box", 2);
 
 ## Parallax Image Effect
 
-Creates a parallax shift effect on images.
+Creates a classic parallax movement effect on images as you scroll, while keeping the container's width and height steady. The image moves vertically within its container, always covering it (object-fit: cover).
 
 #### Usage
 ```javascript
-Ferro.imgShift(element, eff);
+// eff: 1 (subtle), 2, 3 (default), 4, 5 (strongest)
+Ferro.parallaxImg('.parallax-container', 3);
+```
+
+#### Example HTML
+```html
+<div class="parallax-img-demo parallax-container">
+  <img src="https://www.polystudi.com/hero-bg-neon.png" alt="Parallax Demo">
+</div>
+```
+
+#### Example Initialization
+```javascript
+Ferro.parallaxImg('.parallax-container', 3); // eff: 1-5
 ```
 
 #### Parameters
-- `element` (string): CSS selector for the element containing the image.
-- `eff` (number, optional): Amount of vertical shift (in vh). Default is 10.
-
-#### Example
-```javascript
-Ferro.imgShift(".box", 20);
-```
+- `element` (string): CSS selector for the container element (should contain an <img>).
+- `eff` (number, optional): Parallax strength level. 1 = subtle (20px), 2 = 30px, 3 = 60px (default), 4 = 80px, 5 = strongest (100px).
 
 ## Ferro Dynamic Hover
 
@@ -534,67 +542,3 @@ To apply a frame effect with custom parameters to all elements with the class `.
 ```javascript
 Ferro.frame(".box", "#ff0000", "3s", "20px", "ease");
 ```
-
-This example sets:
-- **Color**: Red (`#ff0000`)
-- **Speed**: 3 seconds (`3s`)
-- **Width**: 20 pixels (`20px`)
-- **Easing**: Ease (`ease`)
-
-
-## Magnet Effect
-
-Creates a magnetic cursor effect on specified elements.
-
-#### Usage
-```javascript
-Ferro.magnet(selector, sensitivity);
-```
-
-#### Parameters
-- `selector` (string): CSS selector for the elements to apply the magnetic effect.
-- `sensitivity` (number): Sensitivity level (1 to 5).
-
-#### Example
-```javascript
-Ferro.magnet(".ferro-magnet", 3);
-```
-
-
-## Mouse Follower
-
-Creates a custom mouse follower element.
-
-#### Usage
-```javascript
-Ferro.mouseFollower(sp, size, blendMode, selectors, se);
-```
-
-#### Parameters
-- `sp` (number, optional): Speed of the follower (0 to 5). Default is 0.
-- `size` (string, optional): Size of the follower ball (e.g., "15px"). Default is "15px".
-- `blendMode` (boolean, optional): If true, enables mix-blend-mode. Default is true.
-- `selectors` (array, optional): Array of CSS selectors. When the mouse hovers over elements matching these selectors, the follower ball scales to cover the element.
-- `se` (number, optional): Scale enhancer (0 to 5). Adjusts the scaling of the follower ball based on a defined enhancement value. Default is 0.
-
-#### Example
-```javascript
-Ferro.mouseFollower(1, "20px", true, ['h1', '.hover-elements'], 3);
-```
-
-This example creates a custom mouse follower with the following settings:
-- Speed: 1
-- Size: 20px
-- Mix-blend-mode enabled
-- Scale enhancer: 3
-- The follower ball will scale to cover any `h1` element or elements with the class `.hover-scale` when hovered.
-
-
-
-## Additional Notes
-
-- Ensure GSAP is included in your project for Ferro.js to work correctly.
-- Customize the CSS styles as needed to match your design requirements.
-
-
----

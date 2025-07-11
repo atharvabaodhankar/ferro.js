@@ -174,17 +174,32 @@ const Ferro = {
   },
   // Usage : FerroElasticImg(".box" , 0(height) or 1(width) or 2(height and width));
 
-  // Ferro Parallax Img
-  imgShift: function (element, eff = 10) {
+  // Ferro Parallax Img (classic parallax, eff: 1-5 for strength)
+  parallaxImg: function (element, eff = 3) {
+    // eff: 1 (subtle, 20px), 2 (30px), 3 (60px), 4 (80px), 5 (100px)
+    const effMap = { 1: 20, 2: 30, 3: 60, 4: 80, 5: 100 };
+    const offset = effMap[eff] || 60;
     const ele = document.querySelector(element);
-    ele.classList.add("ferro-img-shift");
+    const img = ele.querySelector("img");
+    img.style.width = "100%";
+    img.style.height = "100%";
+    img.style.objectFit = "cover";
+    img.style.display = "block";
     gsap.fromTo(
-      ele.querySelector("img"),
-      { y: `${eff * -1}vh` },
-      { y: `${eff}vh`, scrollTrigger: { trigger: element, scrub: 3 } }
+      img,
+      { y: -offset },
+      {
+        y: offset,
+        scrollTrigger: {
+          trigger: ele,
+          scrub: 3,
+          start: "top bottom",
+          end: "bottom top"
+        }
+      }
     );
   },
-  // Usage : FerroImgShift(".box" , 20);
+  // Usage : Ferro.parallaxImg('.parallax-container', 3); // eff: 1-5
 
   // Ferro Text Waves
 
