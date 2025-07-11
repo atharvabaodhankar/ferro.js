@@ -487,20 +487,32 @@ Splits text into words and animates them with various effects when they enter th
 
 #### Usage
 ```javascript
-Ferro.textSplit(selector, scrub, style, st, ed);
+// style: 1-5 (animation style)
+Ferro.textSplit('.text', 1, 5, '0%', '5%');
+```
+
+#### Example HTML
+```html
+<div class="text">This is a demo of the Ferro.js textSplit effect. Each word animates as you scroll!</div>
+```
+
+#### Example Initialization
+```javascript
+Ferro.textSplit('.text', 1, 5, '0%', '5%'); // style: 1-5
 ```
 
 #### Parameters
 - `selector` (string): CSS selector for the text elements.
 - `scrub` (boolean, optional): If true, enables ScrollTrigger for the animation. Default is false.
-- `style` (number, optional): Style of the animation (0 to 4). Default is 0.
+- `style` (number, optional): Animation style (1 to 5):
+  - 1: Default (slide up)
+  - 2: Skew
+  - 3: Y-axis variation
+  - 4: Scale
+  - 5: Rotate
 - `st` (string, optional): Scroll start position (e.g., "top"). Default is "top".
 - `ed` (string, optional): Scroll end position (e.g., "70%"). Default is "70%".
 
-#### Example
-```javascript
-Ferro.textSplit(".text", 1, 4, "0%", "5%");
-```
 ## Frame Effect
 
 The `frame` function adds a customizable frame effect to specified elements. This effect wraps the content inside a frame with defined styles like color, speed, width, and easing.

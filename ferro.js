@@ -228,10 +228,11 @@ const Ferro = {
   textSplit: function (
     selector,
     scrub = false,
-    style = 0,
+    style = 1,
     st = "top",
     ed = "70%"
   ) {
+    // style: 1-5 (instead of 0-4)
     const FerroTextSplits = document.querySelectorAll(selector);
 
     FerroTextSplits.forEach((FerroTextSplit) => {
@@ -244,12 +245,12 @@ const Ferro = {
 
       gsap.from(FerroTextSplit.querySelectorAll("span"), {
         duration: 1,
-        skewX: style === 1 ? 10 : 0,
-        y: style === 2 ? -50 : 50, // Add y-axis variation
+        skewX: style === 2 ? 10 : 0,
+        y: style === 3 ? -50 : 50, // Add y-axis variation
         opacity: 0,
         stagger: 0.05,
-        scale: style === 3 ? 0.8 : 1, // Add scale variation
-        rotate: style === 4 ? 5 : 0, // Add rotation variation
+        scale: style === 4 ? 0.8 : 1, // Add scale variation
+        rotate: style === 5 ? 5 : 0, // Add rotation variation
         scrollTrigger: scrub
           ? {
               trigger: FerroTextSplit,
@@ -263,7 +264,7 @@ const Ferro = {
       });
     });
   },
-  // Usage : FerroTextSplit(".text", 1, 4, "0%", "5%" );
+  // Usage : Ferro.textSplit('.text', 1, 5, '0%', '5%'); // style: 1-5
   // Ferro Magnet
 
   /**
