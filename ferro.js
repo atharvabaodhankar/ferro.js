@@ -156,17 +156,17 @@ const Ferro = {
   // Ferro Elastic Img
 
   elasticImg: function (element, style = 0) {
-    const options = {
-      0: { height: 0 },
-      1: { width: 0 },
-      2: { height: 0, width: 0 },
-    };
-
-    const selectedOptions = options[style <= 2 ? style : 2];
+    let fromVars = {};
+    if (style === 0) {
+      fromVars = { scaleY: 0.1 };
+    } else if (style === 1) {
+      fromVars = { scaleX: 0.1 };
+    } else {
+      fromVars = { scale: 0.1 };
+    }
 
     gsap.from(element, {
-      ...selectedOptions,
-      scale: 0.9,
+      ...fromVars,
       ease: "elastic",
       duration: 3,
       scrollTrigger: { trigger: element },
