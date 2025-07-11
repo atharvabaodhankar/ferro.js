@@ -696,15 +696,15 @@ const Ferro = {
 
   // Ferro Dynamic Hover
   dynamicHover: function (selector, speed = 0) {
-
+    // 1 = lowest sensitivity (least movement), 5 = highest (most movement)
     const sensitivityValues = {
-      1: 10,
-      2: 12,
-      3: 14,
-      4: 15,
-      5: 16,
+      1: 20, // lowest sensitivity
+      2: 15,
+      3: 10,
+      4: 7,
+      5: 5  // highest sensitivity
     };
-    const appliedSensitivity = sensitivityValues[speed] || 8;
+    const appliedSensitivity = sensitivityValues[speed] || 10;
 
     const selects = document.querySelectorAll(selector);
     selects.forEach((ele) => {

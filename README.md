@@ -439,37 +439,27 @@ Ferro.parallaxImg('.parallax-container', 3); // eff: 1-5
 
 ## Ferro Dynamic Hover
 
-The `dynamicHover` function will create a dynamic hover effect where the elements smoothly follow the mouse cursor, enhancing the visual interaction on your webpage.
+Creates a dynamic hover effect where the element smoothly follows the mouse cursor, with adjustable sensitivity.
 
-### Parameters
-
-- **`selector`** (string): A CSS selector to target the elements for the hover effect.
-- **`speed`** (number, optional): Determines the sensitivity of the hover effect. The default value is `0`. Sensitivity levels are as follows:
-  - `1`: Sensitivity level 10
-  - `2`: Sensitivity level 12
-  - `3`: Sensitivity level 14
-  - `4`: Sensitivity level 15
-  - `5`: Sensitivity level 16
-  - `default`: Sensitivity level 8
-
-### Usage
-
+#### Usage
 ```javascript
-Ferro.dynamicHover(".box", 3);
+// speed: 1 (lowest sensitivity, least movement) to 5 (highest sensitivity, most movement)
+Ferro.dynamicHover('.dynamic-hover-demo', 3);
 ```
 
-This will apply the hover effect with sensitivity level 3 to all elements matching the `.box` selector.
-
-### Example
-
-To apply the hover effect to all elements with the class `.box` and set the sensitivity to level 3, you would use:
-
-```javascript
-Ferro.dynamicHover(".box", 3);
+#### Example HTML
+```html
+<div class="dynamic-hover-demo">Hover Me!</div>
 ```
 
+#### Example Initialization
+```javascript
+Ferro.dynamicHover('.dynamic-hover-demo', 3); // speed: 1-5
+```
 
-
+#### Parameters
+- `selector` (string): CSS selector for the element(s) to apply the effect to.
+- `speed` (number, optional): Sensitivity level. 1 = lowest sensitivity (least movement), 5 = highest sensitivity (most movement). Default is 3.
 
 ## Text Waves Effect
 
@@ -520,7 +510,7 @@ The `frame` function adds a customizable frame effect to specified elements. Thi
 - **`selector`** (string): A CSS selector to target the elements that will receive the frame effect.
 - **`color`** (string, optional): The color of the frame. The default value is `"#fff"` (white).
 - **`speed`** (string, optional): The duration of the frame animation. The default value is `"4s"`.
-- **`width`** (string, optional): The width of the frame padding. The default value is `"15px"`.
+- `width` (string, optional): The width of the frame padding. The default value is `"15px"`.
 - **`easing`** (string, optional): The easing function for the animation. The default value is `"ease-in-out"`.
 
 ### Usage
